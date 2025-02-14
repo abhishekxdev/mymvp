@@ -1,0 +1,19 @@
+"use client";
+
+export default function Projects() {
+    return (
+        <div className="h-screen w-screen flex flex-col justify-start p-16 relative bg-black overflow-hidden">
+            {/* Background Grid Overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+
+            {/* Content Container */}
+            <div className="max-w-6xl w-full mx-auto z-10">
+                <div className="flex flex-col gap-4 intersect:motion-translate-y-in-100 intersect:motion-rotate-in-45 intersect:motion-blur-in-sm">
+                    <h1 className="text-white text-5xl md:text-6xl xl:text-7xl font-bold tracking-tighter font-sans">
+                        Projects
+                    </h1>
+                </div>
+            </div>
+        </div>
+    );
+}

@@ -1,0 +1,13 @@
+import ObserverProvider from "@/components/general/ObserverProvider";
+
+export default function MarketingLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <ObserverProvider>
+        {children}
+    </ObserverProvider>
+  );
+}
