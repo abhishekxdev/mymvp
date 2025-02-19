@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle } from "lucide-react"
 import Link from "next/link"
 export default function Standard() {
     return (
-        <div className="flex flex-col gap-4 text-white py-4 px-16 w-full">
+        <div className="flex flex-col gap-4 text-white py-8 md:px-16 w-full">
             <Badge className="w-fit px-4 py-2" variant="default">One Time Payment</Badge>
 
             <div className="flex items-center justify-between gap-2">
@@ -18,7 +18,7 @@ export default function Standard() {
             </div>
 
             <Link href="https://cal.com/anubhav-dube-h6xzsc" className="text-black rounded-lg bg-white flex justify-between items-center p-2">
-                <p className="text-black font-sans font-medium tracking-tighter text-left text-xl">Reserve</p>
+                <p className="text-black font-sans font-bold tracking-tighter text-left ">Reserve</p>
                 <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
             </div>

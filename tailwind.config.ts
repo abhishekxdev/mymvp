@@ -90,9 +90,14 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+			  slide: {
+				'0%': { transform: 'translateX(0)' },
+				'100%': { transform: 'translateX(100%)' },
+			  },
   		},
   		animation: {
+			slide: 'slide 1s ease-out forwards',
   			'shadow-left': 'blobShadowLeft 7s infinite ease-in-out',
   			'shadow-right': 'blobShadowRight 7s infinite ease-in-out',
   			'accordion-down': 'accordion-down 0.2s ease-out',

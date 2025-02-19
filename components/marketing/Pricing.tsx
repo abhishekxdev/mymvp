@@ -14,7 +14,7 @@ export default function Pricing() {
             <div className="absolute inset-0 "></div>
 
             <div className="max-w-6xl w-full mx-auto z-10 space-y-8 md:space-y-16 intersect:motion-preset-fade intersect:motion-duration-2000">
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 ">
                     <h1 className="text-black text-3xl md:text-6xl xl:text-7xl font-bold tracking-tighter font-sans ">
                         Pricing
                     </h1>
@@ -26,7 +26,7 @@ export default function Pricing() {
                 <div className="grid grid-cols-1 md:grid-cols-5 justify-center gap-4">
 
 
-                    <div className="flex flex-col justify-center gap-4 bg-black p-4 rounded-lg  col-span-2 relative ">
+                    <div className=" hidden md:flex flex-col justify-center gap-4 bg-black p-4 rounded-lg  col-span-2 relative ">
                         <Badge className="w-fit px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-900 motion-preset-compress absolute top-0 right-[-10px] ">
                             <BellRing className="w-4 h-4 mr-2 motion-preset-pulse " />
                             2 Slots Left
