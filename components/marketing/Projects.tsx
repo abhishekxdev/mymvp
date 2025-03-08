@@ -43,7 +43,7 @@ const projects = [
 ]
 
 export default function Projects() {
-  const [activeIndex, setActiveIndex] = useState<number>(0)
+  const [activeIndex] = useState<number>(0)
 
   return (
     <section className="min-h-screen w-full py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative overflow-hidden bg-black">
