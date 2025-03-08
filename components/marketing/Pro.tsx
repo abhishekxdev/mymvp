@@ -17,7 +17,7 @@ export default function Pro() {
             </div>
 
             <Link href="https://cal.com/anubhav-dube-h6xzsc" className="text-black rounded-lg bg-white flex justify-between items-center p-2">
-                <p className="text-black font-sans font-bold tracking-tighter text-left ">Reserve</p>
+                <p className="text-black font-sans font-semibold tracking-tighter text-left ">Reserve</p>
                 <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { UserRound,Code, AtSign ,Mail} from "lucide-react";
+import Link from "next/link";
 export default function About() {
     return (
         <div className="h-screen w-screen flex flex-col justify-center p-16 relative bg-black overflow-hidden">
@@ -16,15 +17,15 @@ export default function About() {
                 </div>
 
                 <div className="flex justify-center  items-center gap-4 ">
-                  <div className="w-full space-y-4">
+                  <div className="w-full ">
                   <p className="text-black font-sans  font-medium tracking-tighter  text-left text-xl xl:text-4xl leading-[30px] md:leading-[50px]" >
                         I'm a software engineer with a passion for building products that help people live better lives.
                     </p>
+                    <Link href="https://cal.com/anubhav-dube-h6xzsc/quick-chat" className="pt-4">
                     <Button className=" hover:shadow-blue-500">
-                      <p>
                         Set a Meet
-                      </p>
-                    </Button>
+                      </Button>
+                      </Link>
                   </div>
 
                   <div className="w-full flex-col space-y-6 ">

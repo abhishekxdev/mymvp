@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
+import Link from "next/link";
 export default function Hero() {
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-around pb-24 relative bg-black overflow-hidden">
@@ -28,10 +28,13 @@ export default function Hero() {
           <p className="text-sm md:text-base text-gray-400 font-sans tracking-tight">
             A Developer that helps you build digital products, MVP's and experiences.
           </p>
-          <Button className="flex items-center gap-2 motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth" variant="secondary">
-            Book a Call
-            <ArrowRight className="w-4 h-4" />
+          <Link className="flex items-center gap-2 motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth"  href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
+          <Button variant="secondary">
+          Book a Call
+          <ArrowRight className="w-4 h-4" />
           </Button>
+           
+          </Link>
         </div>
       </div>
 

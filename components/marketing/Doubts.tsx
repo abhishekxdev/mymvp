@@ -40,7 +40,7 @@ export default function FAQAccordion() {
             <CardFooter className="flex flex-col items-center gap-4">
               <h3 className="text-xl font-semibold text-center">Book a 15-minute intro call</h3>
               <Button asChild className="w-full max-w-xs ">
-                <Link href="/schedule">
+                <Link href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
                   Schedule now
                   <ChevronDown className="ml-2 h-4 w-4 rotate-[-90deg] animate-pulse" />
                 </Link>
