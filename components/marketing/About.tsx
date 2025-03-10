@@ -1,110 +1,92 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { UserRound,Code, AtSign ,Mail} from "lucide-react";
+import { UserRound, Code, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 export default function About() {
     return (
-        <div className="h-screen w-screen flex flex-col justify-center p-4 sm:p-8 md:p-16 relative bg-black overflow-hidden">
+        <div className="h-screen w-screen flex flex-col justify-start p-8  relative bg-black overflow-hidden">
             {/* Background Grid Overlay */}
-            <div className="absolute inset-0 bg-white"></div>
+            <div className="absolute top-1/8 -left-20 w-80 h-80 bg-blue-500/20 rounded-full blur-[104px]"></div>
+            <div className="absolute bottom-0 -right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-[104px]"></div>
 
-            {/* Content Container */}
-            <div className="max-w-6xl w-full mx-auto z-10">
-                <div className="flex absolute top-4 sm:top-10 flex-col gap-4 intersect:motion-translate-y-in-100 intersect:motion-rotate-in-45 intersect:motion-blur-in-sm">
-                    <h1 className="text-black text-3xl md:text-6xl xl:text-7xl font-bold tracking-tighter font-sans">
-                        About
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
+           
+            <div className="max-w-6xl w-full mx-auto z-10 space-y-8 md:space-y-16 intersect:motion-preset-fade intersect:motion-duration-2000">
+                <div className="flex flex-col items-center gap-4 pt-8 ">
+                    <h1 className="text-white text-3xl md:text-6xl xl:text-7xl font-bold tracking-tighter font-sans ">
+                    Move at Startup Speed
                     </h1>
+                    <p className="text-white font-sans font-medium tracking-tighter text-left text-md md:text-2xl xl:text-3xl">
+                    Speed Meets Precision—Launch Faster Than Ever
+                    </p>
+
                 </div>
 
-                <div className="flex flex-col lg:flex-row justify-center items-center gap-8  ">
-                    <div className="w-full lg:w-1/2 intersect:motion-fade-in intersect:motion-slide-in-from-left">
-                        <p className="text-black font-sans font-medium tracking-tighter text-left px-1 text-sm md:text-xl xl:text-4xl leading-[30px] md:leading-[50px]">
+                <div className="flex lg:flex-row flex-col gap-4">
+                    <div className="hidden lg:flex lg:w-1/2 flex-col items-start pr-8 justify-center  md:space-y-6 grid grid-cols-1  gap-4 intersect:motion-fade-in intersect:motion-slide-in-from-right">
+                        <p className="text-white font-sans font-medium tracking-tighter text-left text-xl md:text-2xl xl:text-2xl">
                             I'm a software engineer with a passion for building products that help people live better lives.
+                            In this fast paced world, I believe in building products that are scalable and future proof so Let's make sure your MVP is built within weeks and not months.
                         </p>
-                        <Link href="https://cal.com/anubhav-dube-h6xzsc/quick-chat" className="pt-0 md:pt-4 block">
-                            <Button className="hover:shadow-blue-500 w-fit sm:w-auto">
-                                Set a Meet
+                        <Link href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
+                            <Button variant="outline" className="shadow-[0px_0px_50px_10px_rgba(59,_130,_246,_0.5)]
+                            hover:shadow-[0px_0px_80px_10px_#c180ff] transition-all duration-300">
+                                Book a Call
                             </Button>
                         </Link>
                     </div>
 
 
-    {/* {Code for Lg screen about features} */}
-                    <div className=" w-1/2  space-y-6 hidden lg:block">
-                    <div className="w-full text-sm md:text-md px-4 flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                            <span className="p-2 bg-black rounded-lg shadow-xl hover:shadow-purple-500 transition-all duration-300 shrink-0">
-                                <UserRound className="text-white w-5 h-5 sm:w-6 sm:h-6"/>
+                    <div className=" w-full lg:w-1/2 flex-col     grid grid-cols-1 gap-4  md:gap-8 intersect:motion-fade-in intersect:motion-slide-in-from-right">
+                        <div className="w-full hover:shadow-xl  hover:shadow-[#A855F7]/50 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
+                            <span className="p-2 bg-black rounded-lg ">
+                             <p className="text-xl">🏢</p>
                             </span>
-                            <p className="text-sm sm:text-base">
-                                Worked with over 6 clients, I have a decent experience with building MVP's and Web Apps, Discussing you Ideas and getting some market validation is quite Important.
+                            <p className="text-sm sm:text-base text-white font-sans font-medium">
+                                Worked with over 6 clients, I have a decent experience with building MVP's and Web Apps, Discussing your ideas and getting some market validation is quite important.
                             </p>
                         </div>
-                        <div className=" w-full px-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                            <span className="p-2 bg-black rounded-lg shadow-xl hover:shadow-purple-500 transition-all duration-300 shrink-0">
-                                <Code className="text-white w-5 h-5 sm:w-6 sm:h-6"/>
-                            </span>
-                            <p className="text-sm sm:text-base">
-                                Tech Stack used is Nextjs, Tailwind, Shadcn, Typescript, Postgres, Supabase, Vercel. The combination of these are the top tiers of the industry. It ensures the best performance and scalability for your product.
-                            </p>
-                        </div>
-                        <div className="w-full px-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                            <span className="p-2 bg-black rounded-lg shadow-xl hover:shadow-purple-500 transition-all duration-300 shrink-0">
-                                <AtSign className="text-white w-5 h-5 sm:w-6 sm:h-6"/>
-                            </span>
-                            <p className="text-sm sm:text-base">
-                                Building a great product isn't just about writing code—it's about understanding your vision and executing it efficiently. I focus on user experience, scalability, and performance to ensure your idea turns into a successful product.
-                            </p>
-                        </div>
-                        <div className="w-full px-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                            <span className="p-2 bg-black rounded-lg shadow-xl hover:shadow-purple-500 transition-all duration-300 shrink-0">
-                                <Mail className="text-white w-5 h-5 sm:w-6 sm:h-6"/>
-                            </span>
-                            <p className="text-sm sm:text-base">
-                                I believe in collaborative development, clear communication, and delivering results that matter. Let's turn your vision into reality—one optimized, scalable, and high-performance product at a time.
 
+
+                        <div className="w-full hover:shadow-xl  hover:shadow-blue-500/50 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
+                            <span className="p-2 bg-black rounded-lg ">
+                                <p className="text-xl">🔥</p>
+                            </span>
+                            <p className="text-sm sm:text-base text-white font-sans font-medium r">
+                            From Idea to MVP – Fast & Scalable
+                        I specialize in turning your concepts into functional MVPs, ensuring market validation and seamless scalability.
                             </p>
                         </div>
+
+                        <div className="w-full hover:shadow-xl  hover:shadow-[#A855F7]/50 transition-all duration-300   border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
+                            <span className="p-2 bg-black rounded-lg">
+                            <p className="text-xl">🧑‍💻</p>
+                            </span>
+                            <p className="text-sm sm:text-base text-white font-sans font-medium">
+                            I leverage the best modern technologies like Nextjs, Tailwind CSS, Shadcn UI, and Postgres to ensure high-performance, scalable, and future-proof MVP development.
+                            </p>
+                        </div>
+
+                        <div className="w-full hidden md:flex hover:shadow-xl  hover:shadow-blue-500/50 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:-translate-y-1   ">
+                            <span className="p-2 bg-black rounded-lg">
+                            <p className="text-xl">📄</p>
+                            </span>
+                            <p className="text-sm sm:text-base text-white font-sans font-medium">
+                            Proper documentation ensures project scalability and smooth developer collaboration. We provide clear API documentation, a detailed tech stack guide, and ERDs for easy data flow visualization.
+                            </p>
+                        </div>
+
+
                     </div>
 
-    {/* {Code for Mobile screen about features} */}
-                    <div className=" lg:hidden w-full lg:w-1/2 flex-col  md:space-y-6 grid grid-cols-1  gap-4 intersect:motion-fade-in intersect:motion-slide-in-from-right">
-                        <div className="w-full text-sm md:text-md px-1 flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                            <span className="p-2 bg-black rounded-lg shadow-xl hover:shadow-purple-500 transition-all duration-300 shrink-0">
-                                <UserRound className="text-white w-5 h-5 sm:w-6 sm:h-6"/>
-                            </span>
-                            <p className="text-sm sm:text-base">
-                                Worked with over 6 clients, I have a decent experience with building MVP's and Web Apps, Discussing you Ideas and getting some market validation is quite Important.
-                            </p>
-                        </div>
-                        <div className=" w-full px-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                            <span className="p-2 bg-black rounded-lg shadow-xl hover:shadow-purple-500 transition-all duration-300 shrink-0">
-                                <Code className="text-white w-5 h-5 sm:w-6 sm:h-6"/>
-                            </span>
-                            <p className="text-sm sm:text-base">
-                                Tech Stack used is Nextjs, Tailwind, Shadcn, Typescript, Postgres, Supabase, Vercel. The combination of these are the top tiers of the industry. It ensures the best performance and scalability for your product.
-                            </p>
-                        </div>
-                        <div className="w-full px-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                            <span className="p-2 bg-black rounded-lg shadow-xl hover:shadow-purple-500 transition-all duration-300 shrink-0">
-                                <AtSign className="text-white w-5 h-5 sm:w-6 sm:h-6"/>
-                            </span>
-                            <p className="text-sm sm:text-base">
-                                Building a great product isn't just about writing code—it's about understanding your vision and executing it efficiently. I focus on user experience, scalability, and performance to ensure your idea turns into a successful product.
-                            </p>
-                        </div>
-                        <div className="w-full px-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm">
-                            <span className="p-2 bg-black rounded-lg shadow-xl hover:shadow-purple-500 transition-all duration-300 shrink-0">
-                                <Mail className="text-white w-5 h-5 sm:w-6 sm:h-6"/>
-                            </span>
-                            <p className="text-sm sm:text-base">
-                                I believe in collaborative development, clear communication, and delivering results that matter. Let's turn your vision into reality—one optimized, scalable, and high-performance product at a time.
-
-Ready to get started? Let's chat! 🚀
-                            </p>
-                        </div>
-                    </div>
                 </div>
+
+
             </div>
         </div>
     );
 }
+
+

@@ -11,7 +11,7 @@ export default function Standard() {
             <div className="flex items-center justify-between gap-2">
             <div>
                 <span className=" font-bold font-sans tracking-tighter text-4xl">
-                    $1999
+                    $1497
                 </span>
                 <br />
                 <span className="text-gray-400">One time payment for MVP Development</span>

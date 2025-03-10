@@ -54,7 +54,7 @@ export default function Projects() {
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-16 md:mb-24">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
@@ -77,7 +77,7 @@ export default function Projects() {
             </CarouselContent>
             <div className="flex justify-end mt-4 gap-4">
               <CarouselPrevious className="static transform-none bg-slate-800 hover:bg-slate-700 border-slate-700" />
-              <CarouselNext className="static transform-none bg-slate-800 hover:bg-slate-700 border-slate-700" />
+              <CarouselNext className="static transform-none bg-transparent border border-slate-700  text-slate-400 hover:bg-slate-700 border-slate-700" />
               <div className="text-slate-500 ml-4">
                 {activeIndex + 1} / {projects.length}
               </div>
@@ -123,7 +123,7 @@ function ProjectCard({ project }: { project: { id: string; title: string; image:
 
         <div className="flex flex-wrap gap-2 mt-auto">
           {project.tags.map((tag, index) => (
-            <span key={index} className="px-3 py-1 text-xs rounded-full bg-slate-800 text-slate-400">
+            <span key={index} className="px-3 py-1 text-xs rounded-full bg-transparent border border-slate-700 text-slate-400">
               {tag}
             </span>
           ))}
@@ -135,8 +135,8 @@ function ProjectCard({ project }: { project: { id: string; title: string; image:
 
 function ProjectCardMobile({ project }: { project: { id: string; title: string; image: string; about: string; tags: string[] } }) {
   return (
-    <div className="p-1 rounded-xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-blue-500/20">
-      <div className="bg-slate-900/80 backdrop-blur-sm rounded-lg p-4">
+    <div className="p-1 rounded-xl ">
+      <div className=" backdrop-blur-sm rounded-lg p-4">
         <div className="flex justify-between items-start mb-4">
           <h3 className="text-xl font-bold text-white">{project.title}</h3>
           <span className="text-slate-500 font-mono text-sm">{project.id}</span>
@@ -150,7 +150,7 @@ function ProjectCardMobile({ project }: { project: { id: string; title: string; 
 
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag:string, index:number) => (
-            <span key={index} className="px-2 py-0.5 text-xs rounded-full bg-slate-800 text-slate-400">
+            <span key={index} className="px-2 py-0.5 text-xs rounded-full bg-transparent border border-slate-700 text-slate-400">
               {tag}
             </span>
           ))}

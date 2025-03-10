@@ -69,10 +69,10 @@ export default {
   					boxShadow: '-50px -50px 150px 50px rgba(160, 106, 226, 1)'
   				},
   				'50%': {
-  					boxShadow: '-40px -60px 140px 45px rgba(160, 106, 226, 0.9)'
+  					boxShadow: '-40px -60px 140px 40px rgba(160, 106, 226, 0.9)'
   				},
   				'75%': {
-  					boxShadow: '-30px -70px 130px 35px rgba(160, 106, 226, 0.8)'
+  					boxShadow: '-30px -70px 130px 30px rgba(160, 106, 226, 0.8)'
   				}
   			},
   			'accordion-down': {
@@ -99,7 +99,7 @@ export default {
   		animation: {
 			slide: 'slide 1s ease-out forwards',
   			'shadow-left': 'blobShadowLeft 7s infinite ease-in-out',
-  			'shadow-right': 'blobShadowRight 7s infinite ease-in-out',
+  			'shadow-right': 'blobShadowRight ',
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
