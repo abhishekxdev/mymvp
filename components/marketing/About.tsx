@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { UserRound, Code, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 export default function About() {
     return (
