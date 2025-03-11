@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,14 +15,33 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "MVP",
-  description: "Anbhavs's MVP Agency",
+  description: "Anubhav's MVP Agency",
+  openGraph: {
+    title: "MVP",
+    description: "Anubhav's MVP Agency",
+    url: "https://www.mvpexperience.agency/",
+    siteName: "MVP",
+    images: [
+      {
+        url: "/card.png", // Replace with your actual image URL
+        width: 1200,
+        height: 630,
+        alt: "MVP Agency Preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MVP",
+    description: "Anubhav's MVP Agency",
+    images: ["/card.png"], // Replace with actual image URL
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body

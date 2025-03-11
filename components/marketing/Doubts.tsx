@@ -1,5 +1,4 @@
 "use client"
-
 import { ChevronDown } from 'lucide-react'
 import Link from "next/link"
 import faqs from "@/data/faq"
@@ -52,9 +51,35 @@ export default function FAQAccordion() {
 
           <div className="absolute z-[-10] bottom-[-50px] left-[-10vw] w-[150vw] h-[150px] bg-gradient-to-r from-purple-300 to-purple-500 blur-[200px] rounded-full rotate-[-30deg]  "></div>
 
+        </div>
+      </div>
 
+      <div className="absolute  w-screen  bottom-4  flex  items-center justify-betweeen gap-4 ">
+        <div className="">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Mvpexpereince.agency. All rights reserved.
+          </p>
+        </div>
+        <div className="">
+          <Link
+            href="https://twitter.com/Anubhavhing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-sm text-white hover:text-white/80"
+          >
+            <Twitter  />
+            <span>@Anubhaving</span>
+          </Link>
         </div>
       </div>
     </div>
+  )
+}
+
+
+export const Twitter=()=>
+  {
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
   )
 }
