@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "MVP",
     images: [
       {
-        url: "/card.png", // Replace with your actual image URL
+        url: "/opengraph-image.png", // Replace with your actual image URL
         width: 1200,
         height: 630,
         alt: "MVP Agency Preview",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MVP",
     description: "Anubhav's MVP Agency",
-    images: ["/card.png"], // Replace with actual image URL
+    images: ["/opengraph-image.png"], // Replace with actual image URL
   },
 };
 
