@@ -15,7 +15,7 @@ const projects = [
   {
     id: "2",
     title: "Norric",
-    image: "/Norric.png",
+    image: "/six.png",
     about: "AI Assisted Platform for Real Estate",
     tags: ["AI", "Postgres","Tailwind CSS","Docker","AWS", "NextJs"],
   },
