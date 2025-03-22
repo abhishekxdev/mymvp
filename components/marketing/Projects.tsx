@@ -1,106 +1,14 @@
 "use client"
 import Image from "next/image"
-import { useState, Suspense, useEffect, useRef } from "react"
+import { useState } from "react"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { ExternalLink } from "lucide-react"
-import VideoSkeleton from "@/components/ui/VideoSkeleton"
-
-// Create an optimized video component with intersection observer
-function ProjectVideo({ src, title }: { src: string; title: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Only load and play video when it's visible
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          if (videoRef.current) {
-            videoRef.current.load()
-            videoRef.current.play()
-          }
-        } else {
-          // Pause video when not visible to save resources
-          if (videoRef.current) {
-            videoRef.current.pause()
-          }
-        }
-      },
-      {
-        threshold: 0.1 // Trigger when 10% of the video is visible
-      }
-    )
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
-
-  return (
-    <video
-      ref={videoRef}
-      preload="metadata" // Only load video metadata initially
-      playsInline
-      loop
-      muted
-      className="w-full h-full object-cover"
-      poster={`/${title}.png`}
-    >
-      {isVisible && ( // Only add source when visible
-        <source 
-          src={src} 
-          type="video/mp4"
-        />
-      )}
-      <track
-        kind="captions"
-        srcLang="en"
-        label="English"
-      />
-      Your browser does not support video playback.
-    </video>
-  )
-}
-
-// Create a wrapper component for video loading
-function VideoWrapper({ project }: { 
-  project: { 
-    title: string; 
-    video?: string; 
-    image: string 
-  }
-}) {
-  return (
-    <div className="relative w-full h-full">
-      <Suspense fallback={<VideoSkeleton />}>
-        {project.video ? (
-          <ProjectVideo 
-            src={project.video} 
-            title={project.title} 
-          />
-        ) : (
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        )}
-      </Suspense>
-    </div>
-  )
-}
 
 const projects = [
   {
     id: "1",
     title: "BrandAI",
     image: "/BrandAI.png",
-    video: "/BrandAI.mp4",
     about: "A job portal for finding jobs and applying to them.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
@@ -108,7 +16,6 @@ const projects = [
     id: "2",
     title: "Norric",
     image: "/Norric.png",
-    video: "/Norric.mp4",
     about: "AI Assisted Platform for Real Estate",
     tags: ["AI", "Postgres","Tailwind CSS","Docker","AWS", "NextJs"],
   },
@@ -116,7 +23,6 @@ const projects = [
     id: "3",
     title: "Jobby",
     image: "/four.png",
-    video: "/Jobby.mp4",
     about: "A job portal for finding jobs and applying to them.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
@@ -124,15 +30,13 @@ const projects = [
     id: "4",
     title: "Artiste",
     image: "/four.png",
-    video: "/Artiste.mp4",
     about: "A platform for creating and sharing AI-generated images.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
   {
     id: "5",
     title: "MedConnect",
-    image: "/four.png",
-    video: "/MedConnect.mp4",
+    image: "/MedConnect.png",
     about: "A platform to connect patients with doctors and get their queries answered.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
@@ -214,7 +118,7 @@ export default function Projects() {
   )
 }
 
-function ProjectCard({ project }: { project: { id: string; title: string; image: string; video?: string; about: string; tags: string[] } }) {
+function ProjectCard({ project }: { project: { id: string; title: string; image: string; about: string; tags: string[] } }) {
   return (
     <div className="">
       <div className="h-full backdrop-blur-sm rounded-xl p-6 flex flex-col">
@@ -223,8 +127,14 @@ function ProjectCard({ project }: { project: { id: string; title: string; image:
           <span className="text-slate-500 font-mono">{project.id}</span>
         </div>
 
-        <div className="relative aspect-[16/9] overflow-hidden rounded-lg mb-6 flex-grow">
-          <VideoWrapper project={project} />
+        <div className="relative aspect-[16/9] overflow-hidden rounded-lg mb-6 flex-grow group">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            priority
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
             <button className="bg-white text-slate-900 rounded-full p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               <ExternalLink className="w-5 h-5" />
@@ -246,7 +156,7 @@ function ProjectCard({ project }: { project: { id: string; title: string; image:
   )
 }
 
-function ProjectCardMobile({ project }: { project: { id: string; title: string; image: string; video?: string; about: string; tags: string[] } }) {
+function ProjectCardMobile({ project }: { project: { id: string; title: string; image: string; about: string; tags: string[] } }) {
   return (
     <div className="p-1 rounded-xl">
       <div className="backdrop-blur-sm rounded-lg p-4">
@@ -256,7 +166,13 @@ function ProjectCardMobile({ project }: { project: { id: string; title: string; 
         </div>
 
         <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
-          <VideoWrapper project={project} />
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
         <p className="text-slate-300 text-sm mb-4">{project.about}</p>
