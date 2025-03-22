@@ -1,14 +1,105 @@
 "use client"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, Suspense, useEffect, useRef } from "react"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { ExternalLink } from "lucide-react"
+import VideoSkeleton from "@/components/ui/VideoSkeleton"
+
+// Create an optimized video component with intersection observer
+function ProjectVideo({ src, title }: { src: string; title: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Only load and play video when it's visible
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          if (videoRef.current) {
+            videoRef.current.load()
+            videoRef.current.play()
+          }
+        } else {
+          // Pause video when not visible to save resources
+          if (videoRef.current) {
+            videoRef.current.pause()
+          }
+        }
+      },
+      {
+        threshold: 0.1 // Trigger when 10% of the video is visible
+      }
+    )
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <video
+      ref={videoRef}
+      preload="metadata" // Only load video metadata initially
+      playsInline
+      loop
+      muted
+      className="w-full h-full object-cover"
+      poster={`/${title}.png`}
+    >
+      {isVisible && ( // Only add source when visible
+        <source 
+          src={src} 
+          type="video/mp4"
+        />
+      )}
+      <track
+        kind="captions"
+        srcLang="en"
+        label="English"
+      />
+      Your browser does not support video playback.
+    </video>
+  )
+}
+
+// Create a wrapper component for video loading
+function VideoWrapper({ project }: { 
+  project: { 
+    title: string; 
+    video?: string; 
+    image: string 
+  }
+}) {
+  return (
+    <div className="relative w-full h-full">
+      <Suspense fallback={<VideoSkeleton />}>
+        {project.video ? (
+          <ProjectVideo 
+            src={project.video} 
+            title={project.title} 
+          />
+        ) : (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
+      </Suspense>
+    </div>
+  )
+}
 
 const projects = [
   {
     id: "1",
-    title: "Brand AI",
-    image: "/four.png",
+    title: "BrandAI",
+    image: "/BrandAI.png",
     video: "/BrandAI.mp4",
     about: "A job portal for finding jobs and applying to them.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
@@ -16,7 +107,7 @@ const projects = [
   {
     id: "2",
     title: "Norric",
-    image: "/six.png",
+    image: "/Norric.png",
     video: "/Norric.mp4",
     about: "AI Assisted Platform for Real Estate",
     tags: ["AI", "Postgres","Tailwind CSS","Docker","AWS", "NextJs"],
@@ -133,23 +224,7 @@ function ProjectCard({ project }: { project: { id: string; title: string; image:
         </div>
 
         <div className="relative aspect-[16/9] overflow-hidden rounded-lg mb-6 flex-grow">
-          {project.video ? (
-            <video
-              src={project.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <Image
-              src={project.image || "/placeholder.svg"}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          )}
+          <VideoWrapper project={project} />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
             <button className="bg-white text-slate-900 rounded-full p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               <ExternalLink className="w-5 h-5" />
@@ -181,23 +256,7 @@ function ProjectCardMobile({ project }: { project: { id: string; title: string; 
         </div>
 
         <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
-          {project.video ? (
-            <video
-              src={project.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <Image
-              src={project.image || "/placeholder.svg"}
-              alt={project.title}
-              fill
-              className="object-cover"
-            />
-          )}
+          <VideoWrapper project={project} />
         </div>
 
         <p className="text-slate-300 text-sm mb-4">{project.about}</p>
