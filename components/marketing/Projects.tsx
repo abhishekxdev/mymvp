@@ -29,7 +29,7 @@ const projects = [
   {
     id: "4",
     title: "Artiste",
-    image: "/four.png",
+    image: "/Artiste.png",
     about: "A platform for creating and sharing AI-generated images.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
@@ -136,9 +136,7 @@ function ProjectCard({ project }: { project: { id: string; title: string; image:
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-            <button className="bg-white text-slate-900 rounded-full p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-              <ExternalLink className="w-5 h-5" />
-            </button>
+           
           </div>
         </div>
 
