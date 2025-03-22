@@ -10,11 +10,29 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Card, CardContent, CardFooter} from "@/components/ui/card"
+import { useEffect, useState } from "react"
 
 export default function FAQAccordion() {
+  const [showFooter, setShowFooter] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      
+      // Show footer when within 20px of bottom
+      setShowFooter(documentHeight - scrollPosition < 20)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    // Initial check
+    handleScroll()
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <div className="h-screen w-screen flex flex-col justify-start py-16 px-8 md:p-16 relative bg-black overflow-hidden">
+    <div className="min-h-screen w-screen flex flex-col justify-start py-16 px-8 md:p-16 relative bg-black overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
 
       <div className="max-w-6xl w-full mx-auto z-10 ">
@@ -30,8 +48,8 @@ export default function FAQAccordion() {
               <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq) => (
                   <AccordionItem key={faq.id} value={faq.id} className=''>
-                    <AccordionTrigger className='text-xl font-semibold md:my-2'>{faq.question}</AccordionTrigger>
-                    <AccordionContent className='text-xl font-normal text-zinc-200 tracking-tight'>{faq.answer}</AccordionContent>
+                    <AccordionTrigger className='text-md my-1  md:text-xl font-semibold md:my-2'>{faq.question}</AccordionTrigger>
+                    <AccordionContent className='text-md md:text-xl font-normal text-zinc-200 font-light tracking-tight'>{faq.answer}</AccordionContent>
                   </AccordionItem>
                 ))}
               </Accordion>
@@ -47,29 +65,33 @@ export default function FAQAccordion() {
             </CardFooter>
           </Card>
 
-          <div className="absolute z-[-10] bottom-[-50px] left-[-20vw] w-[150vw] h-[250px] bg-gradient-to-r from-cyan-600 to-indigo-600 blur-[200px] rounded-full rotate-[-30deg]  "></div>
+          <div className="absolute z-[-10] bottom-[-50px] left-[-20vw] w-[50vw] h-[150px] bg-gradient-to-r from-cyan-600 to-indigo-600 blur-[200px] rounded-full rotate-[-30deg]  "></div>
 
-          <div className="absolute z-[-10] bottom-[-50px] left-[-10vw] w-[150vw] h-[150px] bg-gradient-to-r from-purple-300 to-purple-500 blur-[200px] rounded-full rotate-[-30deg]  "></div>
+          <div className="absolute z-[-10] bottom-[-50px] left-[-10vw] w-[50vw] h-[50px] bg-gradient-to-r from-purple-300 to-purple-500 blur-[200px] rounded-full rotate-[-30deg]  "></div>
 
         </div>
       </div>
 
-      <div className="absolute  w-screen  bottom-4  flex  items-center justify-betweeen gap-4 ">
-        <div className="">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Mvpexpereince.agency. All rights reserved.
-          </p>
-        </div>
-        <div className="">
-          <Link
-            href="https://twitter.com/Anubhavhing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm text-white hover:text-white/80"
-          >
-            <Twitter  />
-            <span>@Anubhaving</span>
-          </Link>
+      <div className={`fixed bottom-0 left-0 right-0 w-full bg-black/80 backdrop-blur-sm border-t border-gray-800 py-2 z-50 transition-transform duration-300 ${
+        showFooter ? 'translate-y-0' : 'translate-y-full'
+      }`}>
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
+          <div>
+            <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
+              © {new Date().getFullYear()} Mvpexpereince.agency. All rights reserved.
+            </p>
+          </div>
+          <div>
+            <Link
+              href="https://twitter.com/Anubhavhing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-xs sm:text-sm text-white hover:text-white/80"
+            >
+              <Twitter />
+              <span>@Anubhaving</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

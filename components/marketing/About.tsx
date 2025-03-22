@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 export default function About() {
     return (
         <div className="h-screen w-screen flex flex-col justify-start p-8  relative bg-black overflow-hidden">
@@ -24,14 +25,17 @@ export default function About() {
                 </div>
 
                 <div className="flex lg:flex-row flex-col gap-4">
-                    <div className="hidden lg:flex lg:w-1/2 flex-col items-start pr-8 justify-center  md:space-y-6 grid grid-cols-1  gap-4 intersect:motion-fade-in intersect:motion-slide-in-from-right">
-                        <p className="text-white font-sans font-medium tracking-tighter text-left text-xl md:text-2xl xl:text-2xl">
-                            I'm a software engineer with a passion for building products that help people live better lives.
-                            In this fast paced world, I believe in building products that are scalable and future proof so Let's make sure your MVP is built within weeks and not months.
+                    <div className="hidden lg:flex  lg:w-1/2 flex-col items-start pr-8 justify-center  md:space-y-6 grid grid-cols-1  gap-4 intersect:motion-fade-in intersect:motion-slide-in-from-right">
+                        <Image src="/hero.png" alt="About" width={200} height={200} className="rounded-xl" />
+                        <p className="text-white font-sans font-medium tracking-tight text-left text-xl md:text-2xl xl:text-2xl">
+                        I’ve seen too many founders burn months (and way too much money) just trying to get an MVP off the ground. We don’t do that here. We move fast, build lean, and deliver a working MVP in under a month so you can start validating, not waiting.
                         </p>
+                        <div className=" w-full flex flex-col items-end justify-end ">
+                            <p className="text-white font-sans font-medium tracking-tight text-right text-sm md:text-lg xl:text-xl">~ Anubhav Dube</p>
+                            <p className="text-white font-sans font-medium tracking-tight text-right text-sm ">Founding Engineer Norric AI</p>
+                        </div>
                         <Link href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
-                            <Button variant="outline" className="shadow-[0px_0px_50px_10px_rgba(59,_130,_246,_0.5)]
-                            hover:shadow-[0px_0px_80px_10px_#c180ff] transition-all duration-300">
+                            <Button variant="outline" className="hover:shadow-[0px_0px_50px_10px_rgba(59,_130,_246,_0.5)]  transition-all duration-300">
                                 Book a Call
                             </Button>
                         </Link>
@@ -39,36 +43,36 @@ export default function About() {
 
 
                     <div className=" w-full lg:w-1/2 flex-col     grid grid-cols-1 gap-4  md:gap-8 intersect:motion-fade-in intersect:motion-slide-in-from-right">
-                        <div className="w-full hover:shadow-xl  hover:shadow-[#A855F7]/50 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
+                        <div className="w-full hover:shadow-xl  hover:shadow-[#A855F7]/10 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
                             <span className="p-2 bg-black rounded-lg ">
                              <p className="text-xl">🏢</p>
                             </span>
                             <p className="text-sm sm:text-base text-white font-sans font-medium">
-                                Worked with over 6 clients, I have a decent experience with building MVP's and Web Apps, Discussing your ideas and getting some market validation is quite important.
+                               Build Core Features and get started with Market Validation, Iterate and Build over the user's feedback.
                             </p>
                         </div>
 
 
-                        <div className="w-full hover:shadow-xl  hover:shadow-blue-500/50 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
+                        <div className="w-full hover:shadow-xl  hover:shadow-blue-500/10 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
                             <span className="p-2 bg-black rounded-lg ">
                                 <p className="text-xl">🔥</p>
                             </span>
                             <p className="text-sm sm:text-base text-white font-sans font-medium r">
                             From Idea to MVP – Fast & Scalable
-                        I specialize in turning your concepts into functional MVPs, ensuring market validation and seamless scalability.
+                        Turn your concepts into functional MVPs, ensuring market validation and seamless scalability.
                             </p>
                         </div>
 
-                        <div className="w-full hover:shadow-xl  hover:shadow-[#A855F7]/50 transition-all duration-300   border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
+                        <div className="w-full hover:shadow-xl  hover:shadow-[#A855F7]/10 transition-all duration-300   border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
                             <span className="p-2 bg-black rounded-lg">
                             <p className="text-xl">🧑‍💻</p>
                             </span>
                             <p className="text-sm sm:text-base text-white font-sans font-medium">
-                            I leverage the best modern technologies like Nextjs, Tailwind CSS, Shadcn UI, and Postgres to ensure high-performance, scalable, and future-proof MVP development.
+                            Leverage the best modern technologies like Nextjs, Tailwind CSS, Shadcn UI, and Postgres to ensure high-performance, scalable, and future-proof MVP development.
                             </p>
                         </div>
 
-                        <div className="w-full hidden md:flex hover:shadow-xl  hover:shadow-blue-500/50 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:-translate-y-1   ">
+                        <div className="w-full hidden md:flex hover:shadow-xl  hover:shadow-blue-500/10 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:-translate-y-1   ">
                             <span className="p-2 bg-black rounded-lg">
                             <p className="text-xl">📄</p>
                             </span>

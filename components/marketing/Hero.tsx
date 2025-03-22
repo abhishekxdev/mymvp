@@ -11,7 +11,7 @@ export default function Hero() {
             href="https://twitter.com/Anubhavhing"
             target="_blank"
             rel="noopener noreferrer"
-            className=" absolute top-4 right-16 flex items-center gap-1 text-sm text-white hover:text-white/80"
+            className=" absolute top-4 right-4 md:right-16 flex items-center gap-1 text-sm text-white hover:text-white/80"
           >
             <Twitter  />
             <span>@Anubhaving</span>
@@ -35,7 +35,7 @@ export default function Hero() {
             and Experiences.
           </h1>
           <p className="text-sm md:text-base text-gray-400 font-sans tracking-tight">
-            A Developer that helps you build digital products, MVP's and experiences.
+            Build, Validate and Scale your MVP's with the best technologies.
           </p>
           <Link className="flex items-center gap-2 motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth"  href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
           <Button variant="secondary">

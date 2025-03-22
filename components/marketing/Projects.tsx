@@ -6,40 +6,67 @@ import { ExternalLink } from "lucide-react"
 
 const projects = [
   {
-    id: "01",
-    title: "Jobby",
+    id: "1",
+    title: "Brand AI",
     image: "/four.png",
+    video: "/BrandAI.mp4",
     about: "A job portal for finding jobs and applying to them.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
   {
-    id: "02",
+    id: "2",
+    title: "Norric",
+    image: "/six.png",
+    video: "/Norric.mp4",
+    about: "AI Assisted Platform for Real Estate",
+    tags: ["AI", "Postgres","Tailwind CSS","Docker","AWS", "NextJs"],
+  },
+  {
+    id: "3",
+    title: "Jobby",
+    image: "/four.png",
+    video: "/Jobby.mp4",
+    about: "A job portal for finding jobs and applying to them.",
+    tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
+  },
+  {
+    id: "4",
+    title: "Artiste",
+    image: "/four.png",
+    video: "/Artiste.mp4",
+    about: "A platform for creating and sharing AI-generated images.",
+    tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
+  },
+  {
+    id: "5",
+    title: "MedConnect",
+    image: "/four.png",
+    video: "/MedConnect.mp4",
+    about: "A platform to connect patients with doctors and get their queries answered.",
+    tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
+  },
+  {
+    id: "6",
     title: "Engima",
     image: "/two.png",
     about: "A platform for creating and sharing AI-generated images.",
     tags: ["AI", "Image Generation", "Next","Tailwind CSS","Supabase","Resend"],
   },
   {
-    id: "04",
+    id: "7",
     title: "VidAI",
     image: "/three.png",
     about: "A platform for creating and sharing AI-generated videos.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
   {
-   id: "05",
+   id: "8",
     title: "ScreenShut",
     image: "/five.png",
     about: "A platform to Edit screenshots and Create Bookshots",
     tags: ["Nextjs", "Postgres","Tailwind CSS","Docker","AWS"],
   },
-  {
-    id: "06",
-     title: "Norric",
-     image: "/six.png",
-     about: "AI Assisted Platform for Real Estate",
-     tags: ["AI", "Postgres","Tailwind CSS","Docker","AWS", "NextJs"],
-   },
+ 
 ]
 
 export default function Projects() {
@@ -96,22 +123,33 @@ export default function Projects() {
   )
 }
 
-function ProjectCard({ project }: { project: { id: string; title: string; image: string; about: string; tags: string[] } }) {
+function ProjectCard({ project }: { project: { id: string; title: string; image: string; video?: string; about: string; tags: string[] } }) {
   return (
     <div className="">
-      <div className="h-full  backdrop-blur-sm rounded-xl p-6 flex flex-col">
+      <div className="h-full backdrop-blur-sm rounded-xl p-6 flex flex-col">
         <div className="flex justify-between items-start mb-6">
           <h3 className="text-2xl font-bold text-white font-sans tracking-tighter">{project.title}</h3>
           <span className="text-slate-500 font-mono">{project.id}</span>
         </div>
 
         <div className="relative aspect-[16/9] overflow-hidden rounded-lg mb-6 flex-grow">
-          <Image
-            src={project.image || "/placeholder.svg"}
-            alt={project.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+          {project.video ? (
+            <video
+              src={project.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <Image
+              src={project.image || "/placeholder.svg"}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
             <button className="bg-white text-slate-900 rounded-full p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               <ExternalLink className="w-5 h-5" />
@@ -133,17 +171,33 @@ function ProjectCard({ project }: { project: { id: string; title: string; image:
   )
 }
 
-function ProjectCardMobile({ project }: { project: { id: string; title: string; image: string; about: string; tags: string[] } }) {
+function ProjectCardMobile({ project }: { project: { id: string; title: string; image: string; video?: string; about: string; tags: string[] } }) {
   return (
-    <div className="p-1 rounded-xl ">
-      <div className=" backdrop-blur-sm rounded-lg p-4">
+    <div className="p-1 rounded-xl">
+      <div className="backdrop-blur-sm rounded-lg p-4">
         <div className="flex justify-between items-start mb-4">
           <h3 className="text-xl font-bold text-white">{project.title}</h3>
           <span className="text-slate-500 font-mono text-sm">{project.id}</span>
         </div>
 
         <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
-          <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+          {project.video ? (
+            <video
+              src={project.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <Image
+              src={project.image || "/placeholder.svg"}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
+          )}
         </div>
 
         <p className="text-slate-300 text-sm mb-4">{project.about}</p>
