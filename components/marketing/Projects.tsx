@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { useState } from "react"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { ExternalLink } from "lucide-react"
+
 
 const projects = [
   {
