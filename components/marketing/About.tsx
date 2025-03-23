@@ -26,7 +26,7 @@ export default function About() {
 
                 <div className="flex lg:flex-row flex-col gap-4">
                     <div className="hidden lg:flex  lg:w-1/2 flex-col items-start pr-8 justify-center  md:space-y-6 grid grid-cols-1  gap-4 intersect:motion-fade-in intersect:motion-slide-in-from-right">
-                        <Image src="/hero.png" alt="About" width={200} height={200} className="rounded-xl" />
+                        <Image src="/Hero.png" alt="About" width={200} height={200} className="rounded-xl" />
                         <p className="text-white font-sans font-medium tracking-tight text-left text-xl md:text-2xl xl:text-2xl">
                         I’ve seen too many founders burn months (and way too much money) just trying to get an MVP off the ground. We don’t do that here. We move fast, build lean, and deliver a working MVP in under a month so you can start validating, not waiting.
                         </p>
