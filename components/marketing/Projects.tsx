@@ -10,7 +10,6 @@ const projects = [
     id: "1",
     title: "BrandAI",
     image: "/BrandAI.png",
-    link: "https://youtu.be/_eQP2g_XlqA",
     about: "A job portal for finding jobs and applying to them.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
@@ -18,7 +17,6 @@ const projects = [
     id: "2",
     title: "Norric",
     image: "/six.png",
-    link: "https://youtu.be/A1jKUgy-Kpo",
     about: "AI Assisted Platform for Real Estate",
     tags: ["AI", "Postgres","Tailwind CSS","Docker","AWS", "NextJs"],
   },
@@ -26,7 +24,6 @@ const projects = [
     id: "3",
     title: "Jobby",
     image: "/four.png",
-    link: "https://youtu.be/0R2HEGmNUJ0",
     about: "A job portal for finding jobs and applying to them.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
@@ -34,7 +31,6 @@ const projects = [
     id: "4",
     title: "Artiste",
     image: "/Artiste.png",
-    link: "https://youtu.be/KSQKonfhDao",
     about: "A platform for creating and sharing AI-generated images.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
@@ -42,7 +38,6 @@ const projects = [
     id: "5",
     title: "MedConnect",
     image: "/MedConnect.png",
-    link: "https://youtu.be/KYTeEnCUaIA",
     about: "A platform to connect patients with doctors and get their queries answered.",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
@@ -134,24 +129,15 @@ function ProjectCard({ project }: { project: { id: string; title: string; image:
         </div>
 
         <div className="relative aspect-[16/9] overflow-hidden rounded-lg mb-6 flex-grow">
-          {project.id === "1" ? (
-            <video
-              src="/BrandAI.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          ) : (
+          
             <Image
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-contain transition-transform duration-500 "
               priority
             />
-          )}
+          
         </div>
 
         <p className="text-slate-300 mb-6">{project.about}</p>
