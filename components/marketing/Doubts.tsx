@@ -1,5 +1,4 @@
 "use client"
-import { ChevronDown } from 'lucide-react'
 import Link from "next/link"
 import faqs from "@/data/faq"
 import { Button } from "@/components/ui/button"
@@ -9,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Card, CardContent, CardFooter} from "@/components/ui/card"
+import { Card, CardContent} from "@/components/ui/card"
 import { useEffect, useState } from "react"
 
 export default function FAQAccordion() {
@@ -54,15 +53,7 @@ export default function FAQAccordion() {
                 ))}
               </Accordion>
             </CardContent>
-            <CardFooter className="flex flex-col items-center gap-4">
-              <h3 className="text-xl font-semibold text-center">Book a 15-minute intro call</h3>
-              <Button asChild className="w-full max-w-xs ">
-                <Link href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
-                  Schedule now
-                  <ChevronDown className="ml-2 h-4 w-4 rotate-[-90deg] animate-pulse" />
-                </Link>
-              </Button>
-            </CardFooter>
+          
           </Card>
 
           <div className="absolute z-[-10] bottom-[-50px] left-[-20vw] w-[50vw] h-[150px] bg-gradient-to-r from-cyan-600 to-indigo-600 blur-[200px] rounded-full rotate-[-30deg]  "></div>
@@ -71,6 +62,42 @@ export default function FAQAccordion() {
 
         </div>
       </div>
+
+
+
+    <section className="w-full pt-12    text-white z-10">
+      <div className="container  mx-auto">
+        <div className="flex flex-col items-center text-center space-y-4  mx-auto">
+          <h2 className="text-3xl font-light tracking-tighter sm:text-4xl ">Your Idea Deserves to Exist</h2>
+
+          <div className="space-y-6 max-w-5xl ">
+            <p className="text-sm md:text-lg text-gray-300">
+              Every successful company started as just an idea. The difference between dreamers and founders? Founders
+              take action. Don't let another day pass with your brilliant concept locked away in your mind.
+            </p>
+
+           
+          </div>
+
+          <div className="pt-6">
+          <Link href="https://cal.com/anubhav-dube-h6xzsc">
+            <Button
+            >
+              Book a 15-minute intro call
+            </Button>
+            </Link>
+          </div>
+
+          <p className="text-sm text-gray-400 pt-4">
+            Join the other founders who trusted us to bring their ideas to life.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+
+
 
       <div className={`fixed bottom-0 left-0 right-0 w-full bg-black/80 backdrop-blur-sm border-t border-gray-800 py-2 z-50 transition-transform duration-300 ${
         showFooter ? 'translate-y-0' : 'translate-y-full'
