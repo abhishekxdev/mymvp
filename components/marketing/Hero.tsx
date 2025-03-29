@@ -24,7 +24,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto z-10">
+      <div className="max-w-6xl mx-auto z-10 px-4 md:px-0">
         <div className="flex flex-col items-center justify-center gap-4 text-center motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
           <h1 className="text-white text-5xl md:text-7xl xl:text-8xl font-bold tracking-tight font-sans">
             Building Digital

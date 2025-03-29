@@ -42,7 +42,7 @@ export default function About() {
                     </div>
 
 
-                    <div className=" w-full lg:w-1/2 flex-col     grid grid-cols-1 gap-4  md:gap-8 intersect:motion-fade-in intersect:motion-slide-in-from-right">
+                    <div className=" w-full lg:w-1/2 flex-col     grid grid-cols-1 gap-12  md:gap-8 intersect:motion-fade-in intersect:motion-slide-in-from-right">
                         <div className="w-full hover:shadow-xl  hover:shadow-[#A855F7]/10 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:translate-z-2 hover:-translate-y-1">
                             <span className="p-2 bg-black rounded-lg ">
                              <p className="text-xl">🏢</p>
@@ -72,7 +72,7 @@ export default function About() {
                             </p>
                         </div>
 
-                        <div className="w-full hidden md:flex hover:shadow-xl  hover:shadow-blue-500/10 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:-translate-y-1   ">
+                        <div className="w-full  hover:shadow-xl  hover:shadow-blue-500/10 transition-all duration-300  border-gray-300 p-3 text-sm md:text-md flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 bg-white/5 rounded-lg backdrop-blur-sm transform-gpu hover:-translate-y-1   ">
                             <span className="p-2 bg-black rounded-lg">
                             <p className="text-xl">📄</p>
                             </span>
