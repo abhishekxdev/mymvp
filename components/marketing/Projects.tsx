@@ -79,7 +79,7 @@ export default function Projects() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
-        <div className="mb-16 md:mb-24">
+        <div className="mb-4 md:mb-16 px-4">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
             <span className="inline-block relative">
               Projects
@@ -164,16 +164,7 @@ function ProjectCardMobile({ project }: { project: { id: string; title: string; 
         </div>
 
         <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
-          {project.id === "1" ? (
-            <video
-              src="/BrandAI.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          ) : (
+        
             <Image
               src={project.image}
               alt={project.title}
@@ -181,7 +172,7 @@ function ProjectCardMobile({ project }: { project: { id: string; title: string; 
               className="object-cover"
               priority
             />
-          )}
+          
         </div>
 
         <p className="text-slate-300 text-sm mb-4">{project.about}</p>

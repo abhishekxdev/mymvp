@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/accordion"
 import { Card, CardContent} from "@/components/ui/card"
 import { useEffect, useState } from "react"
+import { ArrowRight } from "lucide-react"
 
 export default function FAQAccordion() {
   const [showFooter, setShowFooter] = useState(false)
@@ -35,15 +36,18 @@ export default function FAQAccordion() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
 
       <div className="max-w-6xl w-full mx-auto z-10 ">
-        <div className="flex flex-col gap-4">
-          <h1 className="text-white text-3xl md:text-6xl xl:text-7xl font-bold tracking-tighter font-sans">
-            Doubts
-          </h1>
-        </div>
+      <div className="flex flex-col gap-4 mb-6">
+                    <h1 className="text-white text-3xl md:text-6xl xl:text-7xl font-bold tracking-tighter font-sans ">
+                      Doubts
+                    </h1>
+                    <p className="text-white font-sans font-medium tracking-tighter text-left text-xl md:text-2xl xl:text-3xl">
+                      We are here to help you with your doubts.
+                    </p>
+    </div>
 
         <div className='grid grid-cols-1 w-full'>
           <Card className="bg-transparent text-white border-none shadow-none font-sans  ">
-            <CardContent className='border-none shadow-none'>
+            <CardContent className='border-none shadow-none px-0'>
               <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq) => (
                   <AccordionItem key={faq.id} value={faq.id} className=''>
@@ -65,27 +69,20 @@ export default function FAQAccordion() {
 
 
 
-    <section className="w-full pt-12    text-white z-10">
+    <section className="w-full pt-12 mb-8    text-white z-10">
       <div className="container  mx-auto">
         <div className="flex flex-col items-center text-center space-y-4  mx-auto">
-          <h2 className="text-3xl font-light tracking-tighter sm:text-4xl ">Your Idea Deserves to Exist</h2>
+          <h2 className="text-2xl font-light tracking-tighter  ">Your Idea Deserves to Exist</h2>
 
-          <div className="space-y-6 max-w-5xl ">
-            <p className="text-sm md:text-lg text-gray-300">
-              Every successful company started as just an idea. The difference between dreamers and founders? Founders
-              take action. Don't let another day pass with your brilliant concept locked away in your mind.
-            </p>
 
+          <div className="">
+          <Link className="flex items-center gap-2 "  href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
+          <Button variant="secondary">
+          Book a Call
+          <ArrowRight className="w-4 h-4" />
+          </Button>
            
-          </div>
-
-          <div className="pt-6">
-          <Link href="https://cal.com/anubhav-dube-h6xzsc">
-            <Button
-            >
-              Book a 15-minute intro call
-            </Button>
-            </Link>
+          </Link>
           </div>
 
           <p className="text-sm text-gray-400 pt-4">
@@ -108,7 +105,7 @@ export default function FAQAccordion() {
               © {new Date().getFullYear()} Mvpexpereince.agency. All rights reserved.
             </p>
           </div>
-          <div>
+          <div className="hidden md:block">
             <Link
               href="https://twitter.com/Anubhavhing"
               target="_blank"
