@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { AnimatedShinyTextDemo } from "./Animatedbadge";
 
 export default function Hero() {
   return (
@@ -26,6 +27,7 @@ export default function Hero() {
       {/* Main Content */}
       <div className="max-w-6xl mx-auto z-10 px-4 md:px-0">
         <div className="flex flex-col items-center justify-center gap-4 text-center motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
+          <AnimatedShinyTextDemo/>
           <h1 className="text-white text-5xl md:text-7xl xl:text-8xl font-bold tracking-tight font-sans">
             Building Digital
             <br />
@@ -38,11 +40,10 @@ export default function Hero() {
             Build, Validate and Scale your MVP's with the best technologies.
           </p>
           <Link className="flex items-center gap-2 motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth"  href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
-          <Button variant="secondary">
-          Book a Call
+          <Button variant="secondary" className="">
+           Book a Call
           <ArrowRight className="w-4 h-4" />
           </Button>
-           
           </Link>
         </div>
       </div>
