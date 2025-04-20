@@ -52,7 +52,7 @@ export default function Pricing() {
                     </div>
 
                     <div className="flex flex-col gap-4 bg-black p-4 rounded-lg md:min-h-[500px] col-span-3">
-                        <Tabs defaultValue="standard" className="w-full">
+                        <Tabs defaultValue="pro" className="w-full">
                             <TabsList className="bg-transparent ">
                                 <TabsTrigger value="standard" className="text-xl">Standard</TabsTrigger>
                                 <TabsTrigger value="pro" className="text-xl">Pro <p className="motion-preset-pulse ml-1">🔥</p></TabsTrigger>

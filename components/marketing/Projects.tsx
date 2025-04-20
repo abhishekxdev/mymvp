@@ -3,7 +3,7 @@ import Image from "next/image"
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
-
+import { CircleAlert } from "lucide-react"
 
 const projects = [
   {
@@ -58,9 +58,9 @@ const projects = [
   },
   {
     id: "7",
-    title: "VidAI",
-    source: "/three.png",
-    about: "A platform for creating and sharing AI-generated videos.",
+    title: "Bloom",
+    source: "/Bloom.png",
+    about: "A Online store for selling Organic Vegetables and Fruits for a healthier life",
     tags: ["Next.js","Postgres","Tailwind CSS","Docker","AWS","OAuth"],
   },
 ]
@@ -80,12 +80,13 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-4 md:mb-16 px-4">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">
+          <h2 className="text-white text-3xl md:text-6xl xl:text-7xl font-bold tracking-tighter font-sans">
             <span className="inline-block relative">
               Projects
             </span>
           </h2> 
-          <p className=" mt-4 text-white font-sans font-medium tracking-tighter text-left text-xl md:text-2xl xl:text-3xl">MVP's Built for Founder's and Startups</p>
+          <p className=" mt-2 text-white font-sans font-medium tracking-tighter text-left text-xl md:text-2xl xl:text-3xl">MVP's Built for Founder's and Startups</p>
+          <p className=" mt-2 text-white font-sans font-medium tracking-tighter text-left text-xl md:text-sm flex items-center gap-2"><CircleAlert className="text-white w-4 h-4" /> We sign NDAs with all clients, so most projects aren’t public and we can’t share much code. If a preview exists, it’s usually just the frontend clone.</p>
         </div>
 
         {/* Desktop view (md and above) */}

@@ -48,7 +48,8 @@ export default function About() {
                              <p className="text-xl">🏢</p>
                             </span>
                             <p className="text-base text-white font-sans font-medium">
-                               Build Core Features and get started with Market Validation, Iterate and Build over the user's feedback.
+                               We focus on building Core Features and getting started with Market Validation, then iterate and build over the user's feedback to build a product that is scalable and future-proof.  
+
                             </p>
                         </div>
 
@@ -77,7 +78,7 @@ export default function About() {
                             <p className="text-xl">📄</p>
                             </span>
                             <p className="text-md sm:text-base text-white font-sans font-medium">
-                            Proper documentation ensures project scalability and smooth developer collaboration. We provide clear API documentation, a detailed tech stack guide, and ERDs for easy data flow visualization.
+                            Proper documentation ensures project scalability and smooth developer collaboration. We provide clear API documentation, a detailed tech stack guide, and ERDs for easy data flow 
                             </p>
                         </div>
 
