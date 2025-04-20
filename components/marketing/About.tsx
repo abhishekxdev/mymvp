@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 export default function About() {
     return (
-        <div className="h-screen w-screen flex flex-col justify-start p-8  relative bg-black overflow-hidden">
+        <div className="min-h-screen w-screen flex flex-col justify-start p-8  relative bg-black ">
             {/* Background Grid Overlay */}
             <div className="absolute top-1/8 -left-20 w-80 h-80 bg-blue-500/20 rounded-full blur-[104px]"></div>
             <div className="absolute bottom-0 -right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-[104px]"></div>

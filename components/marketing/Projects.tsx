@@ -86,7 +86,7 @@ export default function Projects() {
             </span>
           </h2> 
           <p className=" mt-2 text-white font-sans font-medium tracking-tighter text-left text-xl md:text-2xl xl:text-3xl">MVP's Built for Founder's and Startups</p>
-          <p className=" mt-2 text-white font-sans font-medium tracking-tighter text-left text-xl md:text-sm flex items-center gap-2"><CircleAlert className="text-white w-4 h-4" /> We sign NDAs with all clients, so most projects aren’t public and we can’t share much code. If a preview exists, it’s usually just the frontend clone.</p>
+          <p className=" mt-2 text-white font-sans font-medium tracking-tighter text-left text-sm md:text-sm flex items-center gap-2"><CircleAlert className="text-white w-4 h-4" /> We sign NDAs with all clients, so most projects aren’t public and we can’t share much code. If a preview exists, it’s usually just the frontend clone.</p>
         </div>
 
         {/* Desktop view (md and above) */}
