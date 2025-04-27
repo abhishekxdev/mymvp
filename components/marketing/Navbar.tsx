@@ -20,8 +20,10 @@ export default function Navbar(){
             </div>
 
             <div className="flex items-center gap-2">
+            <Link className="flex items-center gap-2 motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth"  href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
                 <Button variant="outline" className="bg-white text-black rounded-xl">
                     Book a Call</Button>
+                    </Link>
 
                     {/* <div className="md:hidden">
                 <MenuIcon className="w-6 h-6"/> 
