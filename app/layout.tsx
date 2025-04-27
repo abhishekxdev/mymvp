@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MVP",
     description: "Anubhav's MVP Agency",
-    url: "https://www.mvpexperience.agency/",
+    url: "https://www.mvpexperience.agency, http://localhost:3000",
     siteName: "MVP",
     images: [
       {

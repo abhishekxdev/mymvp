@@ -12,8 +12,8 @@ export function AnimatedShinyTextDemo() {
         )}
       >
         <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out text-neutral-400 hover:text-neutral-600 hover:duration-300 ">
-          <span>✨ Slot's Available for May </span>
-          <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+          <span className="flex items-center gap-2"> ✨ Slot's Available for May </span>
+          <ArrowRightIcon className="ml-1 size-3 motion-preset-wobble " />
         </AnimatedShinyText>
       </div>
     </div>

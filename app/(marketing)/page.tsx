@@ -6,7 +6,7 @@ import Doubts from "@/components/marketing/Doubts";
 import Testimonials from "@/components/marketing/Testimonials";
 export default function Home() {
   return (
-    <div className="overflow-x-hidden ">
+    <div className="overflow-x-hidden bg-black">
       <Hero />
       <About />
       <Projects />

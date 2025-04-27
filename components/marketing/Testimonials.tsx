@@ -41,7 +41,7 @@ const testimonials: Testimonial[] = [
 // The main Testimonials section component
 export default function Testimonials() {
   return (
-    <section className="min-h-screen w-full py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative overflow-hidden bg-black">
+    <section className="min-h-screen w-full py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative overflow-hidden bg-black" id="testimonials">
       {/* Glow effect */}
 
 

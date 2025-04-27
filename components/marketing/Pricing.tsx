@@ -9,7 +9,7 @@ import Standard from "./Standard"
 import Pro from "./Pro"
 export default function Pricing() {
     return (
-        <div className="h-screen w-screen flex flex-col justify-start p-8  relative bg-[#ECF0F1] overflow-hidden">
+        <div className="min-h-screen w-screen flex flex-col justify-start p-8  relative bg-[#ECF0F1] overflow-hidden" id="pricing">
             {/* Background Grid Overlay */}
             <div className="absolute inset-0 "></div>
 

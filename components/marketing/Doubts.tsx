@@ -32,7 +32,7 @@ export default function FAQAccordion() {
   }, [])
 
   return (
-    <div className="min-h-screen w-screen flex flex-col justify-start py-16 px-8 md:p-16 relative bg-black overflow-hidden">
+    <div className="min-h-screen w-screen flex flex-col justify-start py-16 px-8 md:p-16 relative bg-black overflow-hidden" id="faq">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
 
       <div className="max-w-6xl w-full mx-auto z-10 ">
