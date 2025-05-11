@@ -42,8 +42,8 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto z-10 px-4 md:px-0 mt-32 md:mt-48">
-        <div className="flex flex-col items-center justify-center gap-4 text-center motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
+      <div className="max-w-6xl mx-auto z-10 px-4 md:px-0 mt-10 md:mt-40">
+        <div className="flex flex-col items-center justify-center gap-6 text-center motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
           <AnimatedShinyTextDemo/>
           <h1 className="text-white text-5xl md:text-7xl xl:text-8xl  tracking-tight font-sans">
             Building Products that <span className={`${playfair.className} italic tracking-tight`}>Validate</span> and <span className={`${playfair.className} italic tracking-tight`}>Scale</span>
