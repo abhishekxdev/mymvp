@@ -10,7 +10,7 @@ export default function Pro() {
             <div className="flex items-center justify-between gap-2">
             <div>
                 <span className=" font-bold font-sans tracking-tighter text-4xl">
-                    $2497
+                    $2997
                 </span>
                 <br />
                 <span className="text-gray-400">Recurring Payment for MVP Development</span>
