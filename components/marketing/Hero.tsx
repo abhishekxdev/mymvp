@@ -7,7 +7,7 @@ import localFont from 'next/font/local';
 import React from "react";
 import Image from "next/image";
 import { VelocityScroll } from "@/components/ui/scroll-based-velocity";
-import ServicesSection from "./ServicesSection";  
+
 
 // Load Playfair Display font
 const playfair = localFont({
