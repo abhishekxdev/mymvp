@@ -56,11 +56,9 @@ export default function Pro() {
                 </span>
 
 
-
-
                 <span className="text-gray-400 flex items-center gap-2">
                     <CheckCircle className="w-4 h-4" />
-                    Regular Updates
+                    Marketing Support
                 </span>
             </div>
 
