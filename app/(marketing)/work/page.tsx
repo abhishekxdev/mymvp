@@ -1,11 +1,9 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { Suspense } from "react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Footer } from "@/components/marketing/Footer";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import { WorkPageClient } from "./WorkPageClient";
 
 const projects = [
   { src: "/crm.png", alt: "CRM Project", category: "Website" },
@@ -25,21 +23,19 @@ const projects = [
 
 const categories = ["All", "Website", "Mobile App", "Product Design", "Branding"];
 
-export default function WorkPage() {
-  const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState("All");
+interface WorkPageProps {
+  searchParams: Promise<{ category?: string }>;
+}
 
-  // Set active tab based on URL parameter
-  useEffect(() => {
-    const categoryParam = searchParams.get('category');
-    if (categoryParam && categories.includes(categoryParam)) {
-      setActiveTab(categoryParam);
-    }
-  }, [searchParams]);
+export default async function WorkPage({ searchParams }: WorkPageProps) {
+  const params = await searchParams;
+  const initialCategory = params.category && categories.includes(params.category) 
+    ? params.category 
+    : "All";
 
-  const filteredProjects = activeTab === "All" 
+  const filteredProjects = initialCategory === "All" 
     ? projects 
-    : projects.filter(p => p.category === activeTab);
+    : projects.filter(p => p.category === initialCategory);
 
   return (
     <div className="bg-black text-white min-h-screen py-20 md:py-24">
@@ -53,41 +49,13 @@ export default function WorkPage() {
 
         {/* Tabs and Content Section with proper beam spacing */}
         <div className="max-w-7xl mx-auto mt-12 px-4 md:px-8 pl-12 md:pl-8">
-          <Tabs value={activeTab} onValueChange={setActiveTab}>
-            {/* Responsive Tabs List */}
-            <div className="flex justify-center mb-8">
-              <TabsList className="bg-transparent border border-neutral-800 rounded-full p-1.5 flex-wrap gap-1 h-auto">
-                {categories.map((category) => (
-                  <TabsTrigger 
-                    key={category} 
-                    value={category}
-                    className="data-[state=active]:bg-white data-[state=active]:text-black text-neutral-400 rounded-full px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap"
-                  >
-                    {category}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
-            
-            {/* Content Grid - Responsive */}
-            <TabsContent value={activeTab} className="mt-8">
-              <div className="grid grid-cols-1 gap-6 sm:gap-8 md:max-w-4xl mx-auto">
-                {filteredProjects.map((project, index) => (
-                  <div key={index} className="rounded-lg overflow-hidden border border-neutral-800 hover:border-neutral-700 transition-colors duration-300">
-                    <div className="relative w-full aspect-video bg-black">
-                      <Image
-                        src={project.src}
-                        alt={project.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                        className="object-contain transition-transform duration-300 hover:scale-105"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+          <Suspense fallback={<div>Loading...</div>}>
+            <WorkPageClient 
+              initialCategory={initialCategory}
+              categories={categories}
+              projects={projects}
+            />
+          </Suspense>
         </div>
         
         {/* Footer with proper beam spacing */}
