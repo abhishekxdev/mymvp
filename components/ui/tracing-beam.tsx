@@ -51,33 +51,9 @@ export const TracingBeam = ({
       ref={ref}
       className={cn("relative w-full overflow-hidden", className)}
     >
-      {/* Beam effect positioned absolutely within the container */}
+      {/* Beam effect positioned absolutely within the container - DOT REMOVED */}
       <div className="absolute top-3 left-2 md:left-8 z-50 pointer-events-none">
-        <motion.div
-          transition={{
-            duration: 0.2,
-            delay: 0.5,
-          }}
-          animate={{
-            boxShadow:
-              scrollYProgress.get() > 0
-                ? "none"
-                : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-          }}
-          className="border-netural-200 ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border shadow-sm"
-        >
-          <motion.div
-            transition={{
-              duration: 0.2,
-              delay: 0.5,
-            }}
-            animate={{
-              backgroundColor: scrollYProgress.get() > 0 ? "white" : "#10b981",
-              borderColor: scrollYProgress.get() > 0 ? "white" : "#059669",
-            }}
-            className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
-          />
-        </motion.div>
+        {/* Green dot container removed completely */}
         <svg
           viewBox={`0 0 20 ${svgHeight}`}
           width="20"
@@ -128,4 +104,4 @@ export const TracingBeam = ({
       </div>
     </motion.div>
   );
-}; 
+};
