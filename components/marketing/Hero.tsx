@@ -1,5 +1,6 @@
 "use client";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { AnimatedShinyTextDemo } from "./Animatedbadge";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -126,15 +127,15 @@ export default function Hero() {
                   Book a Call
                 </span>
             </a>
-            <a
-                href="#our-work"
+            <Link
+                href="/work"
                 className="px-4 py-2 rounded-full border border-white/10 bg-gradient-to-r from-black/80 via-gray-900/80 to-black/80 backdrop-blur-sm shadow-[inset_0_1px_3px_rgba(255,255,255,0.1),_0_4px_10px_rgba(0,0,0,0.3)] transition-all duration-300 hover:from-black/90 hover:via-gray-900/90 hover:to-black/90 active:scale-[0.98] inline-flex items-center w-full sm:w-auto justify-center sm:justify-start"
               >
                 <span className="text-center font-helvetica font-normal text-sm tracking-[-0.02em] text-white">
                   View Work
                 </span>
                 <ArrowRight className="w-3 h-3 ml-1.5 text-white" />
-            </a>
+            </Link>
           </div>
         </div>
 

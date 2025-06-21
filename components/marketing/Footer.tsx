@@ -21,7 +21,7 @@ export function Footer() {
                 Book an Intro Call
               </Button>
             </Link>
-            <Link href="#work" passHref>
+            <Link href="/work" passHref>
               <Button 
                 variant="secondary" 
                 size="lg" 
