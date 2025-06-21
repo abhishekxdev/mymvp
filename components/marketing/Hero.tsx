@@ -1,26 +1,8 @@
 "use client";
 import { ArrowRight } from "lucide-react";
 import { AnimatedShinyTextDemo } from "./Animatedbadge";
-import localFont from 'next/font/local';
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
-// Load Playfair Display font
-const playfair = localFont({
-  src: [
-    {
-      path: '../../fonts/PlayfairDisplay-VariableFont_wght.ttf',
-      weight: '400 900',
-      style: 'normal',
-    },
-    {
-      path: '../../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf',
-      weight: '400 900',
-      style: 'italic',
-    },
-  ],
-  variable: '--font-playfair'
-});
 
 const projects = [
   
@@ -112,7 +94,7 @@ export default function Hero() {
   const currentProject = projects[currentProjectIndex]
 
   return (
-    <div className={`min-h-[80vh] w-screen flex flex-col items-center justify-center relative bg-black ${playfair.variable}`}>
+    <div className="min-h-[80vh] w-screen flex flex-col items-center justify-center relative bg-black">
       {/* Overlay for better readability */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
 
@@ -127,10 +109,12 @@ export default function Hero() {
         <div className="flex flex-col items-start justify-center gap-6 md:gap-8 text-left motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
           <AnimatedShinyTextDemo/>
           
-          {/* Mobile heading - forced to 2 lines */}
-          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl tracking-tight font-playfair leading-tight md:leading-normal">
-            <span className="block">Start Smart with MVPs that</span>
-            <span className="block">
+          {/* Heading with proper mobile line breaks and original font */}
+          <h1 className="text-white text-4xl md:text-6xl tracking-tight font-sans">
+            {/* Mobile: Force line break after "MVPs that" */}
+            <span className="block md:inline">Start Smart with MVPs that</span>
+            <br className="block md:hidden" />
+            <span className="block md:inline">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Dominate</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Grow</span>
             </span>
           </h1>
