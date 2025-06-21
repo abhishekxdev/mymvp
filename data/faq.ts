@@ -1,33 +1,38 @@
 export default [
-    {
-      "id": "item-1",
-      "question": "How fast will I receive my requests?",
-      "answer": "I strive to deliver requests as quickly as possible, typically within a few business days after our Inital Disucssion and after recieving the downpayment I will start giving you updates on the progress of the project. But if you need it faster, you can always contact me and I will try to deliver it as soon as possible"
-    },
-    {
-      "id": "item-2",
-      "question": "How does onboarding work?",
-      "answer": "Onboarding process is streamlined and user-friendly. First Step is doing a meeting to see If I can help you, then we start building the MVP together as soon as I get the first  downpayment, We Will continue discussing and  iterating over the MVP until we have reached your satisfaction point."
-    },
-    {
-      "id": "item-3",
-      "question": "Who are the Developers?",
-      "answer": "There are no external Devlopers, I am the only one who will be communicating with you and doing all the work. We might sometime hire external designer's to help with designs But the development of project will be done by me, I will be solely accountable for the MVP"
-    },
-    {
-      "id": "item-4",
-      "question": "If I want to add something new after the Initial Discussion?",
-      "answer": "The number of changes you can make depends on your subscription plan. We offer various tiers to suit different needs and volumes. If you want to add something new, you can do so but if it extends the timeline,you might have to pay more for the extra time. If you belive that you might need to add something new constantly, you might consider buying Pro Plan."
-    },
-    {
-      "id": "item-6",
-      "question": "How do you handle larger requests?",
-      "answer": "For larger requests, I assess the scope and may break it down into smaller, manageable tasks. We'll communicate with you throughout the process to ensure your needs are met."
-    },
-    {
-      "id": "item-8",
-      "question": "What if I don't like the work that is done?",
-      "answer": "I offer revisions to ensure your satisfaction. Moreover the continous Discussion and Iteration won't let you feel suddenly that you are not liking the work, Including you in every step of work will let us work more efficiently and avoud such situations. If you're not happy with the work, we'll work with you to make necessary adjustments."
-    }
-  ]
+  {
+    id: "item-1",
+    question: "Who Do You Work With?",
+    answer: "We primarily work with SaaS companies, tech startups, and digital-first businesses who value design as a strategic investment. Our clients range from funded startups to established companies looking to elevate their design."
+  },
+  {
+    id: "item-2",
+    question: "What's Your Design Process Like?",
+    answer: "Our process starts with deep research into your business, users, and competition. We then move through strategy, wireframing, visual design, prototyping, and testing. We maintain transparent communication throughout with regular updates and feedback sessions."
+  },
+  {
+    id: "item-3",
+    question: "How Long Does a Typical Project Take?",
+    answer: "Timelines vary by project scope. A landing page typically takes 2 weeks, a comprehensive website 3-4 weeks, and app designs 4-6 weeks. Our MVP package is guaranteed to deliver in 2 weeks. We're transparent about timelines from the beginning."
+  },
+  {
+    id: "item-4",
+    question: "Do You Offer Refunds?",
+    answer: "For our Landing Page and Product Design services, we offer a satisfaction guarantee. If you're not happy with the initial concepts, we'll refund your deposit. For our MVP package, we guarantee delivery in 2 weeks or you get a full refund."
+  },
+  {
+    id: "item-5",
+    question: "When Can You Start?",
+    answer: "We typically can start new projects within 1-2 weeks of signing. For urgent projects, we sometimes have fast-track availability with a rush fee. The best way to find out is to book an intro call with us."
+  },
+  {
+    id: "item-6",
+    question: "How Do We Communicate?",
+    answer: "We use Slack for daily communication, Notion for project management, and schedule regular video calls for important discussions and presentations. You'll have direct access to your design team throughout the project."
+  },
+  {
+    id: "item-7",
+    question: "Do You Offer On-Going Support?",
+    answer: "Yes, many of our clients stay with us long-term. After the initial project, we offer flexible monthly retainers that include ongoing design work, updates, and optimizations based on user feedback and performance data."
+  }
+]
   

@@ -1,109 +1,92 @@
 "use client"
 
-import { useState } from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
+import {
+  ChevronRight,
+  Globe,
+  Smartphone,
+  DraftingCompass,
+  Palette,
+} from "lucide-react"
+import { useRouter } from "next/navigation"
 
-// Define the service types
-type Service = {
-  id: string
-  title: string
-  images: string[]
-}
+export function ServicesSection() {
+  const router = useRouter()
 
-// Sample data for the services
-const services: Service[] = [
-  {
-    id: "websites",
-    title: "Websites",
-    images: ["/two.png", "/Bloom.png"],
-  },
-  {
-    id: "mobile-apps",
-    title: "Mobile Apps",
-    images: ["/MobileApp2.png", "/MobileApp.png"],
-  },
-  {
-    id: "ai-automation",
-    title: "AI Apps & Automation",
-    images: ["/Automation1.png", "/Automation.png"],
+  const services = [
+    {
+      title: "Websites",
+      category: "Website",
+      icon: <Globe className="w-7 h-7 text-neutral-400" />,
+    },
+    {
+      title: "Mobile Apps",
+      category: "Mobile App",
+      icon: <Smartphone className="w-7 h-7 text-neutral-400" />,
+    },
+    {
+      title: "Product Design",
+      category: "Product Design",
+      icon: <DraftingCompass className="w-7 h-7 text-neutral-400" />,
+    },
+    {
+      title: "Logo/Branding",
+      category: "Branding",
+      icon: <Palette className="w-7 h-7 text-neutral-400" />,
+    },
+  ]
+
+  const handleServiceClick = (category: string) => {
+    router.push(`/work?category=${encodeURIComponent(category)}`)
   }
-]
-
-export default function ServicesSection() {
-  const [hoveredService, setHoveredService] = useState<string | null>(null)
 
   return (
-    <section className="w-full mt-20 ">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap justify-center gap-16 lg:gap-24">
+    <section className="w-full py-12 md:pb-0 relative" id="services">
+      <div className="max-w-2xl mx-auto z-10 px-4 md:px-8">
+        <div className="flex flex-col items-start gap-3 mb-12">
+          <p className="text-sm uppercase tracking-wider font-sans text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+            SERVICES
+          </p>
+          <h2 className="text-xl md:text-2xl font-helvetica font-normal tracking-tight text-left text-white">
+          We Don't Just Build - We Convert
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {services.map((service) => (
-            <div
-              key={service.id}
-              className="relative rounded-lg"
-              onMouseEnter={() => setHoveredService(service.id)}
-              onMouseLeave={() => setHoveredService(null)}
-            >
-              <div className="h-48 w-64 relative mb-6 mx-auto rounded-lg">
-                {service.images.map((image, index) => (
-                  <motion.div
-                    key={`${service.id}-${index}`}
-                    className="absolute inset-0"
-                    initial={{
-                      y: 0,
-                      rotate: index % 2 === 0 ? -5 : 5,
-                      zIndex: service.images.length - index,
-                    }}
-                    animate={
-                      hoveredService === service.id
-                        ? {
-                            y: [-10, -30, -20, -25],
-                            rotate: [
-                              index % 2 === 0 ? -5 : 5,
-                              index % 2 === 0 ? -8 : 8,
-                              index % 2 === 0 ? -3 : 3,
-                              index % 2 === 0 ? -6 : 6,
-                            ],
-                            zIndex: service.images.length + index,
-                          }
-                        : {
-                            y: 0,
-                            rotate: index % 2 === 0 ? -5 : 5,
-                            zIndex: service.images.length - index,
-                          }
-                    }
-                    transition={{
-                      y: { duration: 0.5, ease: "easeOut" },
-                      rotate: {
-                        duration: 0.8,
-                        ease: "easeInOut",
-                        repeat: hoveredService === service.id ? Number.POSITIVE_INFINITY : 0,
-                        repeatType: "reverse",
-                      },
-                    }}
-                    style={{
-                      transformOrigin: "center bottom",
-                      filter: "drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1))",
-                    }}
-                  >
-                    <div className="w-full h-full overflow-hidden rounded-lg p-2 ">
-                      <div className="w-full h-full relative rounded-lg overflow-hidden ">
-                        <Image
-                          src={image || "/placeholder.svg"}
-                          alt={`${service.title} example ${index + 1}`}
-                          fill
-                          className="object-contain rounded-lg"
-                        />
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-              <h2 className="text-xl font-sans text-center text-white mt-2">{service.title}</h2>
-            </div>
+            <ServiceCard 
+              key={service.title} 
+              {...service} 
+              onClick={() => handleServiceClick(service.category)}
+            />
           ))}
         </div>
       </div>
     </section>
+  )
+}
+
+const ServiceCard = ({
+  title,
+  icon,
+  onClick,
+}: {
+  title: string;
+  icon: React.ReactNode;
+  onClick: () => void;
+}) => {
+  return (
+    <button
+      onClick={onClick}
+      className="bg-black hover:bg-neutral-900 transition-colors duration-300 rounded-lg p-6 flex flex-col justify-between h-40 border border-neutral-800 text-left cursor-pointer"
+    >
+      <div>
+        {icon}
+        <h3 className="text-white font-medium text-lg mt-4">{title}</h3>
+      </div>
+      <div className="flex items-center text-neutral-400 hover:text-white transition-colors duration-300 text-sm">
+        <span>View Work</span>
+        <ChevronRight className="w-4 h-4 ml-1" />
+      </div>
+    </button>
   )
 }

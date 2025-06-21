@@ -1,268 +1,103 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import Image from "next/image"
-interface Testimonial {
-  quote: string
-  company: string
-  logo: string
-}
+import { useRef, useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 
+const testimonials = [
+  {
+    id: 1,
+    role: 'Vorkel AI',
+    quote: 'Working with this team was a game-changer for our startup. The designs not only looked incredible but directly contributed to our conversion rates increasing by 43%. Worth every penny.'
+  },
+  {
+    id: 2,
+    role: 'XAuto',
+    quote: 'We had nothing but an idea. In just a few weeks, we had a fully functional MVP that looked like a real product. Their work gave us the confidence to start pitching and testing immediately.'
+  },
+  {
+    id: 3,
+    role: 'Gamify',
+    quote: 'They turned our rough notes and scattered ideas into a usable MVP we could actually demo. It was the first time we saw our product come to life — and it exceeded expectations.'
+  },
+  {
+    id: 4,
+    role: 'Phantom',
+    quote: 'Working with them felt like adding a full-stack product team to our startup. Fast communication, thoughtful feedback, and real ownership of the product vision.'
+  }
+]
+
+export function TestimonialsSection() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
   
-
-// The main Testimonials section component
-export default function Testimonials() {
-  const testimonials: Testimonial[] = [
-    {
-      quote:
-        "The platform has completely transformed how we approach customer engagement. The intuitive interface and powerful analytics have helped us increase conversion rates by over 40% in just three months.",
-      company: "Medconnect",
-      logo: "/brands/medconnect.png",
-    },
-    {
-      quote:
-        "Since implementing this solution, our team productivity has increased by 35%. The seamless workflow automation has eliminated bottlenecks we've struggled with for years.",
-      company: "Bloom",
-      logo: "/brands/bloom.png",
-    },
-    {
-      quote:
-        "Our customer satisfaction scores have reached an all-time high after adopting this platform. The personalized experience it provides has been a game-changer for our business.",
-      company: "CredBoost",
-      logo: "/brands/credboost.png",
-    },
-    {
-      quote:
-        "The robust analytics dashboard gives us insights we never had before. We've been able to identify opportunities that increased our revenue by 28% in the first quarter alone.",
-      company: "Jobby",
-      logo: "/brands/jobby.png",
-    },
-    {
-      quote:
-        "The integration capabilities are exceptional. We connected all our existing tools within days, creating a unified ecosystem that has streamlined our entire operation.",
-      company: "Artise",
-      logo: "/brands/artise.png",
-    },
-    {
-      quote:
-        "The security features provide peace of mind for both our team and our clients. The platform's compliance standards exceed industry requirements while maintaining ease of use.",
-      company: "Brazen",
-      logo: "/brands/brazen.png",
-    },
-    {
-      quote:
-        "The onboarding process was remarkably smooth. Our entire team was proficient with the platform within a week, and the support team was exceptional throughout the transition.",
-      company: "Norric",
-      logo: "/brands/norric.png",
-    },
-    {
-      quote:
-        "We've reduced operational costs by 25% while improving service quality. The automation features handle routine tasks, allowing our team to focus on strategic initiatives.",
-      company: "Orbaflow",
-      logo: "/brands/orbaflow.png",
-    },
-  ]
-
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [,setIsMobile] = useState(false)
-  const [isPaused, setIsPaused] = useState(false)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const timerRef = useRef<NodeJS.Timeout | null>(null)
-
-  // Check if we're on mobile for responsive adjustments
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-
-    // Initial check
-    checkMobile()
-
-    // Add event listener for window resize
-    window.addEventListener("resize", checkMobile)
-
-    // Cleanup
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
-
-  // Function to change slide with animation
-  const changeSlide = (newIndex: number) => {
-    // Start animation
-    setIsAnimating(true)
-
-    // After a short delay, change the slide
-    setTimeout(() => {
-      setCurrentIndex(newIndex)
-
-      // End animation after the slide has changed
-      setTimeout(() => {
-        setIsAnimating(false)
-      }, 300)
-    }, 300)
+  const handlePrev = () => {
+    setActiveIndex(prev => prev === 0 ? testimonials.length - 1 : prev - 1)
   }
-
-  // Auto-rotation effect with 3 second interval
-  useEffect(() => {
-    const startTimer = () => {
-      // Clear any existing timer
-      if (timerRef.current) {
-        clearInterval(timerRef.current)
-      }
-
-      // Set new timer that advances the slide every 3 seconds
-      timerRef.current = setInterval(() => {
-        if (!isPaused && !isAnimating) {
-          const nextIndex = currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1
-          changeSlide(nextIndex)
-        }
-      }, 3000)
-    }
-
-    // Start the timer
-    startTimer()
-
-    // Cleanup on unmount
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current)
-      }
-    }
-  }, [isPaused, currentIndex, isAnimating, testimonials.length])
-
-  const goToPrevious = () => {
-    // Pause auto-rotation temporarily
-    setIsPaused(true)
-
-    // Don't allow navigation during animation
-    if (isAnimating) return
-
-    const isFirstSlide = currentIndex === 0
-    const newIndex = isFirstSlide ? testimonials.length - 1 : currentIndex - 1
-    changeSlide(newIndex)
-
-    // Resume auto-rotation after 4 seconds of inactivity
-    setTimeout(() => setIsPaused(false), 4000)
+  
+  const handleNext = () => {
+    setActiveIndex(prev => (prev + 1) % testimonials.length)
   }
-
-  const goToNext = () => {
-    // Pause auto-rotation temporarily
-    setIsPaused(true)
-
-    // Don't allow navigation during animation
-    if (isAnimating) return
-
-    const isLastSlide = currentIndex === testimonials.length - 1
-    const newIndex = isLastSlide ? 0 : currentIndex + 1
-    changeSlide(newIndex)
-
-    // Resume auto-rotation after 4 seconds of inactivity
-    setTimeout(() => setIsPaused(false), 4000)
-  }
-
-  const goToSlide = (slideIndex: number) => {
-    // Don't do anything if clicking the current slide or during animation
-    if (slideIndex === currentIndex || isAnimating) return
-
-    // Pause auto-rotation temporarily
-    setIsPaused(true)
-
-    changeSlide(slideIndex)
-
-    // Resume auto-rotation after 4 seconds of inactivity
-    setTimeout(() => setIsPaused(false), 4000)
-  }
-
+  
   return (
-    <section className="min-h-screen w-full py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative overflow-hidden bg-black" id="testimonials">
-      {/* Glow effect */}
-
-
-      {/* Subtle grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
-      <div className="max-w-6xl w-full mx-auto z-10 space-y-12 md:space-y-16">
-        {/* Header section */}
-        <div className="flex flex-col items-center text-center gap-4">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold tracking-tighter font-sans">
-            Trusted by Founders & Teams
-          </h1>
-          <p className="text-slate-300 font-sans font-medium tracking-tight text-base md:text-xl max-w-2xl">
-            Hear from clients and collaborators about their experience working with us.
-          </p>
-        </div>
-
-
-        <div
-          className="relative w-full text-white py-8 md:py-12 z-20"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setTimeout(() => setIsPaused(false), 4000)}
-        >
-          <div className="max-w-[90%] sm:max-w-[85%] md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto">
-            <div className="relative min-h-[250px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[400px] flex flex-col items-center justify-center">
-              {/* Quote with fade animation */}
-              <div
-                className={`text-center mx-auto mb-8 sm:mb-10 md:mb-12 transition-all duration-600 ease-in-out ${
-                  isAnimating ? "opacity-0 transform translate-y-4" : "opacity-100 transform translate-y-0"
-                }`}
-              >
-                <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight font-sans font-light leading-normal sm:leading-relaxed md:leading-relaxed lg:leading-relaxed">
-                  &quot;{testimonials[currentIndex].quote}&quot;
-                </p>
-              </div>
-
-              {/* Company with fade animation */}
-              <div
-                className={`flex flex-col items-center mb-8 sm:mb-6 transition-all duration-600 ease-in-out ${
-                  isAnimating ? "opacity-0 transform translate-y-4" : "opacity-100 transform translate-y-0"
-                }`}
-              >
-                <div className="h-6 sm:h-8 flex items-center justify-center mb-2">
-                  <Image src={testimonials[currentIndex].logo} alt={testimonials[currentIndex].company} width={100} height={100} />
+    <section className="w-full pt-12 md:pt-16 pb-12 md:pb-16 relative">
+      <div className="max-w-2xl mx-auto px-4 md:px-8">
+        <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start space-y-4">
+            <p className="text-sm uppercase tracking-wider font-helvetica font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">TESTIMONIALS</p>
+            <h2 className="text-3xl md:text-4xl font-helvetica font-normal tracking-tight text-left text-white">
+            Client Voices, Unfiltered
+            </h2>
+          </div>
+          
+          <div className="relative mt-16 w-full">
+            <div 
+              ref={containerRef} 
+              className="overflow-hidden rounded-xl"
+            >
+              <div className="relative">
+                {/* Large quote icon background */}
+                <div className="absolute top-4 left-6 opacity-10">
+                  <Quote className="w-12 h-12 text-white" />
+                </div>
+                
+                <div className="p-6 md:p-10 rounded-xl border border-white/20 transition-all duration-300">
+                  <div className="relative">
+                    <p className="text-lg md:text-xl text-white font-helvetica italic mb-6 text-left">
+                      {testimonials[activeIndex].quote}
+                    </p>
+                    
+                    <div className="flex flex-col items-start">
+                      <p className="font-helvetica font-normal text-base text-left text-white">{testimonials[activeIndex].role}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              {/* Navigation Arrows */}
-              <div className="w-full flex justify-between items-center absolute top-1/2 -translate-y-1/2 px-2 sm:px-4 md:px-6 lg:px-8">
-                <button
-                  onClick={goToPrevious}
-                  className="bg-black/30 hover:bg-black/50 rounded-full p-2 sm:p-3 transition-all duration-300"
-                  aria-label="Previous testimonial"
-                  disabled={isAnimating}
-                >
-                  <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-                </button>
-
-                <button
-                  onClick={goToNext}
-                  className="bg-black/30 hover:bg-black/50 rounded-full p-2 sm:p-3 transition-all duration-300"
-                  aria-label="Next testimonial"
-                  disabled={isAnimating}
-                >
-                  <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-                </button>
-              </div>
-
-              {/* Pagination Dots */}
-              <div className="absolute bottom-0 flex space-x-1 sm:space-x-2">
-                {testimonials.map((_, slideIndex) => (
-                  <button
-                    key={slideIndex}
-                    onClick={() => goToSlide(slideIndex)}
-                    className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
-                      slideIndex === currentIndex ? "w-6 sm:w-8 bg-white" : "w-1.5 sm:w-2 bg-white/40"
-                    }`}
-                    aria-label={`Go to testimonial ${slideIndex + 1}`}
-                    disabled={isAnimating}
-                  />
-                ))}
-              </div>
+            </div>
+            
+            <div className="flex justify-start mt-6 gap-4">
+              <Button 
+                variant="default" 
+                size="icon" 
+                className="rounded-full h-10 w-10 bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 text-white"
+                onClick={handlePrev}
+              >
+                <ChevronLeft className="h-5 w-5" />
+                <span className="sr-only">Previous</span>
+              </Button>
+              <Button 
+                variant="default" 
+                size="icon" 
+                className="rounded-full h-10 w-10 bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 text-white"
+                onClick={handleNext}
+              >
+                <ChevronRight className="h-5 w-5" />
+                <span className="sr-only">Next</span>
+              </Button>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

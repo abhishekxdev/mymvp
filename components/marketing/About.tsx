@@ -12,12 +12,12 @@ export default function About() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
            
-            <div className="max-w-6xl w-full mx-auto z-10 space-y-8 md:space-y-16 intersect:motion-preset-fade intersect:motion-duration-2000">
-                <div className="flex flex-col items-center gap-4 pt-8 ">
-                    <h1 className="text-white text-3xl md:text-6xl xl:text-7xl font-bold tracking-tighter font-sans ">
+            <div className="max-w-5xl w-full mx-auto z-10 space-y-8 md:space-y-16 intersect:motion-preset-fade intersect:motion-duration-2000">
+                <div className="flex flex-col items-start gap-4 pt-8 ">
+                    <h1 className="text-white text-3xl md:text-5xl font-bold tracking-tighter font-sans ">
                     Move at Startup Speed
                     </h1>
-                    <p className="text-white font-sans font-medium tracking-tight text-center text-base md:text-2xl xl:text-2xl">
+                    <p className="text-white font-sans font-medium tracking-tight text-left text-base md:text-xl">
                     We move fast, build lean and Validate.
                     </p>
                     
@@ -27,11 +27,11 @@ export default function About() {
                 <div className="flex lg:flex-row flex-col gap-4">
                     <div className="hidden lg:flex  lg:w-1/2 flex-col items-start pr-8 justify-center  md:space-y-6 grid grid-cols-1  gap-4 intersect:motion-fade-in intersect:motion-slide-in-from-right">
                         {/* <Image src="/Hero.png" alt="About" width={200} height={200} className="rounded-xl" /> */}
-                        <p className="text-white font-sans font-medium tracking-tight text-left text-xl md:text-2xl xl:text-2xl">
-                        I’ve seen too many founders burn months (and way too much money) just trying to get an MVP off the ground. We don’t do that here. We move fast, build lean, and deliver a working MVP in under a month so you can start validating, not waiting.
+                        <p className="text-white font-sans font-medium tracking-tight text-left text-lg md:text-xl">
+                        I've seen too many founders burn months (and way too much money) just trying to get an MVP off the ground. We don't do that here. We move fast, build lean, and deliver a working MVP in under a month so you can start validating, not waiting.
                         </p>
                         <div className=" w-full flex flex-col items-end justify-end ">
-                            <p className="text-white font-sans font-medium tracking-tight text-right text-sm md:text-lg xl:text-xl">~ Anubhav Dube</p>
+                            <p className="text-white font-sans font-medium tracking-tight text-right text-sm md:text-base">~ Anubhav Dube</p>
                             <p className="text-white font-sans font-medium tracking-tight text-right text-sm ">Founding Engineer Norric AI</p>
                         </div>
                         <Link href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">

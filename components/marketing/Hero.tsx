@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { AnimatedShinyTextDemo } from "./Animatedbadge";
 import localFont from 'next/font/local';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { VelocityScroll } from "@/components/ui/scroll-based-velocity";
 
@@ -26,9 +26,97 @@ const playfair = localFont({
   variable: '--font-playfair'
 });
 
+const projects = [
+  
+  {
+    id: "9",
+    title: "CRM Project",
+    source: "/crm.png",
+    about: "A project showcasing CRM functionalities.",
+    tags: ["CRM", "WebApp"],
+  },
+  {
+    id: "10",
+    title: "Don Project",
+    source: "/don.png",
+    about: "A project named Don.",
+    tags: ["WebApp", "Design"],
+  },
+  {
+    id: "11",
+    title: "Email AI Project",
+    source: "/emailai.png",
+    about: "An AI-powered email assistant.",
+    tags: ["AI", "Email"],
+  },
+  {
+    id: "12",
+    title: "Horoscope Project",
+    source: "/horoscope.PNG",
+    about: "A daily horoscope application.",
+    tags: ["WebApp", "API"],
+  },
+  {
+    id: "13",
+    title: "Finc Project",
+    source: "/finc.png",
+    about: "A financial technology project.",
+    tags: ["FinTech", "WebApp"],
+  },
+  {
+    id: "14",
+    title: "Nurodeep Project",
+    source: "/nurodeep.png",
+    about: "A project related to neurotechnology.",
+    tags: ["Science", "WebApp"],
+  },
+  {
+    id: "15",
+    title: "Outreach Project",
+    source: "/outreach.png",
+    about: "A tool for managing outreach campaigns.",
+    tags: ["Marketing", "SaaS"],
+  },
+  {
+    id: "16",
+    title: "Phantom Project",
+    source: "/Phantom.png",
+    about: "A project with a stealthy name.",
+    tags: ["WebApp"],
+  },
+  {
+    id: "17",
+    title: "Project Sync Project",
+    source: "/projectsync.JPG",
+    about: "A tool for synchronizing project data.",
+    tags: ["Productivity", "WebApp"],
+  },
+  {
+    id: "18",
+    title: "VorkelAI Snap Project",
+    source: "/VorkelAI Snap.png",
+    about: "A snapshot of the VorkelAI project.",
+    tags: ["AI", "WebApp"],
+  },
+]
+
 export default function Hero() {
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentProjectIndex((prevIndex) => 
+        prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+      )
+    }, 2000) // Change every 2 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const currentProject = projects[currentProjectIndex]
+
   return (
-    <div className="min-h-screen w-screen flex flex-col items-center justify-center  relative bg-black ">
+    <div className="min-h-[80vh] w-screen flex flex-col items-center justify-center  relative bg-black ">
      
       
 
@@ -42,56 +130,48 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto z-10 px-4 md:px-0 mt-10 md:mt-40">
-        <div className="flex flex-col items-center justify-center gap-6 text-center motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
+      <div className="max-w-5xl mx-auto z-10 px-4 md:px-8 mt-10 md:mt-48">
+        <div className="flex flex-col items-start justify-center gap-8 text-left motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
           <AnimatedShinyTextDemo/>
-          <h1 className="text-white text-5xl md:text-7xl xl:text-8xl  tracking-tight font-sans">
-            Building Products that <span className={`${playfair.className} italic tracking-tight`}>Validate</span> and <span className={`${playfair.className} italic tracking-tight`}>Scale</span>
+          <h1 className="text-white text-4xl md:text-6xl tracking-tight font-sans">
+            Start Smart with MVPs that<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Dominate</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Grow</span>
           </h1>
-          <p className="text-sm md:text-lg text-gray-400 font-sans tracking-tight md:max-w-2xl">
-          We specialize in building Web Apps, Mobile Apps, and AI Systems  to help you launch faster and validate market demand faster.
-            
-          </p>
-          <Link className="flex items-center gap-2 motion-translate-y-in-100 motion-duration-[2s] motion-ease-spring-smooth"  href="https://cal.com/anubhav-dube-h6xzsc/quick-chat">
-          <Button variant="secondary" className="">
-           Book a Call
-          <ArrowRight className="w-4 h-4" />
-          </Button>
-          </Link>
+          <div className="flex items-center gap-3">
+            <a
+                href="https://calendly.com/vishnoiabhishek29/30min?month=2025-06"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-full border border-white/10 bg-white text-black backdrop-blur-sm shadow-[inset_0_1px_3px_rgba(255,255,255,0.1),_0_4px_10px_rgba(0,0,0,0.3)] transition-all duration-300 hover:bg-white/90 active:scale-[0.98] inline-flex items-center"
+              >
+                <span className="text-center font-helvetica font-normal text-sm tracking-[-0.02em]">
+                  Book a Call
+                </span>
+            </a>
+            <a
+                href="#our-work"
+                className="px-4 py-2 rounded-full border border-white/10 bg-gradient-to-r from-black/80 via-gray-900/80 to-black/80 backdrop-blur-sm shadow-[inset_0_1px_3px_rgba(255,255,255,0.1),_0_4px_10px_rgba(0,0,0,0.3)] transition-all duration-300 hover:from-black/90 hover:via-gray-900/90 hover:to-black/90 active:scale-[0.98] inline-flex items-center"
+              >
+                <span className="text-center font-helvetica font-normal text-sm tracking-[-0.02em] text-white">
+                  View Work
+                </span>
+                <ArrowRight className="w-3 h-3 ml-1.5 text-white" />
+            </a>
+          </div>
         </div>
 
-
-
-{/* Brands */}
-
-        <div className="hidden md:flex relative flex items-center justify-between mt-24 max-w-5xl mx-auto overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-black"></div>
-          <VelocityScroll defaultVelocity={2} numRows={1} className="flex items-center gap-24">
-            <div className="flex items-center gap-24">
-              <Image src="/brands/brazen.png" alt="hero" width={150} height={150} className="" />
-              <Image src="/brands/credboost.png" alt="hero" width={200} height={200} className="mb-2" />
-              <Image src="/brands/bloom.png" alt="hero" width={150} height={150} className="mb-2" />
-              <Image src="/brands/orbaflow.png" alt="hero" width={150} height={150} className="mb-2" />
-              <Image src="/brands/norric.png" alt="hero" width={150} height={150} className="mb-2" />
-              <Image src="/brands/medconnect.png" alt="hero" width={200} height={150} className="mb-2" />
-              <Image src="/brands/jobby.png" alt="hero" width={150} height={150} className="mb-2" />
-              <Image src="/brands/artise.png" alt="hero" width={150} height={150} className="mb-2" />
-
-              {/* Duplicate set of images for seamless loop */}
-              <Image src="/brands/brazen.png" alt="hero" width={150} height={150} className="" />
-              <Image src="/brands/credboost.png" alt="hero" width={200} height={200} className="mb-2" />
-              <Image src="/brands/bloom.png" alt="hero" width={150} height={150} className="mb-2" />
-              <Image src="/brands/orbaflow.png" alt="hero" width={150} height={150} className="mb-2" />
-              <Image src="/brands/norric.png" alt="hero" width={150} height={150} className="mb-2" />
-              <Image src="/brands/medconnect.png" alt="hero" width={200} height={150} className="mb-2" />
-              <Image src="/brands/jobby.png" alt="hero" width={150} height={150} className="mb-2" />
-              <Image src="/brands/artise.png" alt="hero" width={150} height={150} className="mb-2" />
+        {/* Projects Section */}
+        <div className="mt-12">
+            {/* Desktop view (md and above) */}
+            <div className="hidden md:block">
+              {currentProject && <ProjectCard project={currentProject} />}
             </div>
-          </VelocityScroll>
 
+            {/* Mobile view (below md) */}
+            <div className="md:hidden">
+              {currentProject && <ProjectCardMobile project={currentProject} />}
+            </div>
         </div>
-
-     
       </div>
 
 
@@ -99,6 +179,103 @@ export default function Hero() {
      
 
 
+    </div>
+  );
+}
+
+// Helper function to check if source is a video
+const isVideoSource = (source: string): boolean => {
+  return source.toLowerCase().endsWith('.mp4'); // Add other video extensions if needed (e.g., .webm, .ogg)
+};
+
+// Define the project type
+interface Project {
+  id: string;
+  title: string;
+  source: string;
+  about: string;
+  tags: string[];
+  url?: string; // Optional URL
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <div className="group relative">
+      <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-black">
+        {isVideoSource(project.source) ? (
+          <video
+            src={project.source}
+            autoPlay
+            loop
+            muted // Autoplay often requires muted
+            playsInline // Important for mobile browsers
+            className="absolute inset-0 w-full h-full object-contain"
+          />
+        ) : (
+          <Image
+            src={project.source}
+            alt={project.title}
+            fill
+            className="object-contain"
+            priority
+          />
+        )}
+      </div>
+
+      {/* Hover Overlay with Link */}
+      {project.url && (
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+          >
+            Visit Website
+          </a>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ProjectCardMobile({ project }: { project: Project }) {
+  return (
+    <div className="group relative">
+      <div className="relative aspect-video overflow-hidden rounded-xl bg-black">
+        {isVideoSource(project.source) ? (
+          <video
+            src={project.source}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <Image
+            src={project.source}
+            alt={project.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
+      </div>
+
+      {/* Hover Overlay with Link */}
+      {project.url && (
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black px-4 py-2 rounded-md font-semibold text-sm hover:bg-gray-200 transition-colors"
+          >
+            Visit Website
+          </a>
+        </div>
+      )}
     </div>
   );
 }
