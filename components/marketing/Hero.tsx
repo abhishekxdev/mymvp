@@ -127,7 +127,7 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto z-10 px-4 md:px-8 mt-10 md:mt-48 ml-8 md:ml-0">
+      <div className="max-w-5xl mx-auto z-10 px-4 md:px-8 pl-12 md:pl-8 mt-10 md:mt-48">
         <div className="flex flex-col items-start justify-center gap-6 md:gap-8 text-left motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
           <AnimatedShinyTextDemo/>
           
