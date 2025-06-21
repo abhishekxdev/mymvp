@@ -109,10 +109,10 @@ export default function Hero() {
         <div className="flex flex-col items-start justify-center gap-6 md:gap-8 text-left motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
           <AnimatedShinyTextDemo/>
           
-          {/* Heading with forced line break for desktop */}
+          {/* Heading with forced line break for desktop and proper gradient styling */}
           <h1 className="text-white text-4xl md:text-6xl tracking-tight font-sans">
             Start Smart with MVPs<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">that Dominate</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Grow</span>
+            that <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Dominate</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Grow</span>
           </h1>
           
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
