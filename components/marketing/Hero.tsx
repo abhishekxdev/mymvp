@@ -116,33 +116,35 @@ export default function Hero() {
   const currentProject = projects[currentProjectIndex]
 
   return (
-    <div className="min-h-[80vh] w-screen flex flex-col items-center justify-center  relative bg-black ">
-     
-      
-
+    <div className="min-h-[80vh] w-screen flex flex-col items-center justify-center relative bg-black">
       {/* Overlay for better readability */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
 
       {/* Grid Pattern Overlay */}
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_2px),linear-gradient(to_bottom,#8080800a_1px,transparent_2px)] bg-[size:20px_24px]">
         {/* Gradient Fade Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30  to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black"></div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto z-10 px-4 md:px-8 mt-10 md:mt-48">
-        <div className="flex flex-col items-start justify-center gap-8 text-left motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
+      <div className="max-w-5xl mx-auto z-10 px-4 md:px-8 mt-10 md:mt-48 ml-8 md:ml-0">
+        <div className="flex flex-col items-start justify-center gap-6 md:gap-8 text-left motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
           <AnimatedShinyTextDemo/>
-          <h1 className="text-white text-4xl md:text-6xl tracking-tight font-sans">
-            Start Smart with MVPs that<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Dominate</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Grow</span>
+          
+          {/* Mobile heading - forced to 2 lines */}
+          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl tracking-tight font-sans leading-tight md:leading-normal">
+            <span className="block">Start Smart with MVPs that</span>
+            <span className="block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Dominate</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Grow</span>
+            </span>
           </h1>
-          <div className="flex items-center gap-3">
+          
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <a
                 href="https://calendly.com/vishnoiabhishek29/30min?month=2025-06"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full border border-white/10 bg-white text-black backdrop-blur-sm shadow-[inset_0_1px_3px_rgba(255,255,255,0.1),_0_4px_10px_rgba(0,0,0,0.3)] transition-all duration-300 hover:bg-white/90 active:scale-[0.98] inline-flex items-center"
+                className="px-4 py-2 rounded-full border border-white/10 bg-white text-black backdrop-blur-sm shadow-[inset_0_1px_3px_rgba(255,255,255,0.1),_0_4px_10px_rgba(0,0,0,0.3)] transition-all duration-300 hover:bg-white/90 active:scale-[0.98] inline-flex items-center w-full sm:w-auto justify-center sm:justify-start"
               >
                 <span className="text-center font-helvetica font-normal text-sm tracking-[-0.02em]">
                   Book a Call
@@ -150,7 +152,7 @@ export default function Hero() {
             </a>
             <a
                 href="#our-work"
-                className="px-4 py-2 rounded-full border border-white/10 bg-gradient-to-r from-black/80 via-gray-900/80 to-black/80 backdrop-blur-sm shadow-[inset_0_1px_3px_rgba(255,255,255,0.1),_0_4px_10px_rgba(0,0,0,0.3)] transition-all duration-300 hover:from-black/90 hover:via-gray-900/90 hover:to-black/90 active:scale-[0.98] inline-flex items-center"
+                className="px-4 py-2 rounded-full border border-white/10 bg-gradient-to-r from-black/80 via-gray-900/80 to-black/80 backdrop-blur-sm shadow-[inset_0_1px_3px_rgba(255,255,255,0.1),_0_4px_10px_rgba(0,0,0,0.3)] transition-all duration-300 hover:from-black/90 hover:via-gray-900/90 hover:to-black/90 active:scale-[0.98] inline-flex items-center w-full sm:w-auto justify-center sm:justify-start"
               >
                 <span className="text-center font-helvetica font-normal text-sm tracking-[-0.02em] text-white">
                   View Work
@@ -161,7 +163,7 @@ export default function Hero() {
         </div>
 
         {/* Projects Section */}
-        <div className="mt-12">
+        <div className="mt-8 md:mt-12">
             {/* Desktop view (md and above) */}
             <div className="hidden md:block">
               {currentProject && <ProjectCard project={currentProject} />}
@@ -173,12 +175,6 @@ export default function Hero() {
             </div>
         </div>
       </div>
-
-
-
-     
-
-
     </div>
   );
 }
@@ -285,6 +281,3 @@ export const Twitter=()=>{
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
   )
 }
-
-
-
