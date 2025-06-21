@@ -41,7 +41,7 @@ export function ServicesSection() {
 
   return (
     <section className="w-full py-12 md:pb-0 relative" id="services">
-      <div className="max-w-2xl mx-auto z-10 px-4 md:px-8">
+      <div className="max-w-2xl mx-auto z-10 px-4 md:px-8 pl-12 md:pl-8">
         <div className="flex flex-col items-start gap-3 mb-12">
           <p className="text-sm uppercase tracking-wider font-sans text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
             SERVICES

@@ -12,7 +12,7 @@ export default function Doubts() {
   return (
     <section className="w-full pt-12 md:pt-16 pb-20 md:pb-24 relative" id="faq">
        <div className="absolute z-[-10] top-1/2 right-0 w-[50vw] h-[50vh] -translate-y-1/2 bg-cyan-500/30 blur-[200px] rounded-full"></div>
-      <div className="max-w-2xl mx-auto px-4 md:px-8 relative z-10">
+      <div className="max-w-2xl mx-auto px-4 md:px-8 pl-12 md:pl-8 relative z-10">
         <div className="flex flex-col items-start">
           <div className="flex flex-col items-start space-y-4">
             <p className="text-sm uppercase tracking-wider font-normal">

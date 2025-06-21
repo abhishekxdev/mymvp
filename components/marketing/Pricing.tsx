@@ -43,7 +43,7 @@ const plans = [
 export function PricingSection() {
   return (
     <section id="pricing" className="pt-16 sm:pt-20 pb-12 sm:pb-16">
-      <div className="max-w-2xl mx-auto z-10 px-4 md:px-8">
+      <div className="max-w-2xl mx-auto z-10 px-4 md:px-8 pl-12 md:pl-8">
         <div className="text-left">
           <h2 className="text-base font-helvetica font-normal leading-7 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             Pricing

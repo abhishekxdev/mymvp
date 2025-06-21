@@ -29,7 +29,7 @@ export function WhyUsSection() {
 
   return (
     <section className="w-full py-6 md:py-8 relative mt-8 md:mt-12" id="why-us">
-      <div className="max-w-2xl mx-auto z-10 px-4 md:px-8">
+      <div className="max-w-2xl mx-auto z-10 px-4 md:px-8 pl-12 md:pl-8">
         <div className="flex flex-col items-start gap-3 mb-8">
           <div className="flex flex-col items-start gap-1">
             <p className="text-xs uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 font-helvetica font-normal">WHY MVP STUDIO</p>
@@ -88,4 +88,4 @@ const Feature = ({
       </p>
     </div>
   )
-} 
+}

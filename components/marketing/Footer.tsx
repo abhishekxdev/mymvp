@@ -5,7 +5,7 @@ import Link from "next/link"
 export function Footer() {
   return (
     <footer className="w-full py-20 md:py-24">
-      <div className="max-w-2xl mx-auto px-4 md:px-8">
+      <div className="max-w-2xl mx-auto px-4 md:px-8 pl-12 md:pl-8">
         <div className="flex flex-col items-center text-center space-y-8">
           <h2 className="text-4xl md:text-5xl font-normal tracking-tighter text-white">
             Your Idea, Our Expertise<br />
@@ -39,4 +39,4 @@ export function Footer() {
       </div>
     </footer>
   )
-} 
+}

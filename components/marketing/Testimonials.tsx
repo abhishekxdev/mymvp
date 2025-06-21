@@ -41,7 +41,7 @@ export function TestimonialsSection() {
   
   return (
     <section className="w-full pt-12 md:pt-16 pb-12 md:pb-16 relative">
-      <div className="max-w-2xl mx-auto px-4 md:px-8">
+      <div className="max-w-2xl mx-auto px-4 md:px-8 pl-12 md:pl-8">
         <div className="flex flex-col items-start">
           <div className="flex flex-col items-start space-y-4">
             <p className="text-sm uppercase tracking-wider font-helvetica font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">TESTIMONIALS</p>
