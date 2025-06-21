@@ -44,21 +44,24 @@ export default function WorkPage() {
   return (
     <div className="bg-black text-white min-h-screen py-20 md:py-24">
       <TracingBeam>
-        <div className="max-w-2xl mx-auto px-4 md:px-8 text-center">
+        {/* Header Section with proper beam spacing */}
+        <div className="max-w-2xl mx-auto px-4 md:px-8 pl-12 md:pl-8 text-center">
           <h1 className="text-4xl md:text-6xl font-normal tracking-tighter text-white">
             Let My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Work Speak</span>
           </h1>
         </div>
 
-        <div className="max-w-7xl mx-auto mt-12 px-4 md:px-8">
+        {/* Tabs and Content Section with proper beam spacing */}
+        <div className="max-w-7xl mx-auto mt-12 px-4 md:px-8 pl-12 md:pl-8">
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <div className="flex justify-center">
-              <TabsList className="bg-transparent border border-neutral-800 rounded-full p-1.5">
+            {/* Responsive Tabs List */}
+            <div className="flex justify-center mb-8">
+              <TabsList className="bg-transparent border border-neutral-800 rounded-full p-1.5 flex-wrap gap-1 h-auto">
                 {categories.map((category) => (
                   <TabsTrigger 
                     key={category} 
                     value={category}
-                    className="data-[state=active]:bg-white data-[state=active]:text-black text-neutral-400 rounded-full px-4 py-1.5 text-sm font-medium transition-colors"
+                    className="data-[state=active]:bg-white data-[state=active]:text-black text-neutral-400 rounded-full px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap"
                   >
                     {category}
                   </TabsTrigger>
@@ -66,17 +69,18 @@ export default function WorkPage() {
               </TabsList>
             </div>
             
+            {/* Content Grid - Responsive */}
             <TabsContent value={activeTab} className="mt-8">
-              <div className="grid grid-cols-1 gap-8 md:max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 gap-6 sm:gap-8 md:max-w-4xl mx-auto">
                 {filteredProjects.map((project, index) => (
-                  <div key={index} className="rounded-lg overflow-hidden border border-neutral-800">
+                  <div key={index} className="rounded-lg overflow-hidden border border-neutral-800 hover:border-neutral-700 transition-colors duration-300">
                     <div className="relative w-full aspect-video bg-black">
                       <Image
                         src={project.src}
                         alt={project.alt}
-                        layout="fill"
-                        objectFit="contain"
-                        className="transition-transform duration-300 hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                        className="object-contain transition-transform duration-300 hover:scale-105"
                       />
                     </div>
                   </div>
@@ -85,8 +89,10 @@ export default function WorkPage() {
             </TabsContent>
           </Tabs>
         </div>
+        
+        {/* Footer with proper beam spacing */}
         <Footer />
       </TracingBeam>
     </div>
   );
-} 
+}
