@@ -19,14 +19,18 @@ export function Footer() {
           </h2>
           
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Link href="https://calendly.com/vishnoiabhishek29/30min" passHref>
+            <a 
+              href="https://calendly.com/vishnoiabhishek29/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button 
                 size="lg" 
                 className="bg-white text-black hover:bg-neutral-200 rounded-full text-base font-normal"
               >
                 Book an Intro Call
               </Button>
-            </Link>
+            </a>
             
             {/* Only show View Work button if NOT on work page */}
             {!isWorkPage && (
