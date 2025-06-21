@@ -1,5 +1,21 @@
 import { cn } from "@/lib/utils";
 import { useRef } from "react";
+import React from "react";
+
+interface CustomCSSProperties extends React.CSSProperties {
+  "--m-x"?: string;
+  "--m-y"?: string;
+  "--r-x"?: string;
+  "--r-y"?: string;
+  "--bg-x"?: string;
+  "--bg-y"?: string;
+  "--duration"?: string;
+  "--foil-size"?: string;
+  "--opacity"?: string;
+  "--radius"?: string;
+  "--easing"?: string;
+  "--transition"?: string;
+}
 
 export const GlareCard = ({
   children,
@@ -24,7 +40,7 @@ export const GlareCard = ({
       y: 0,
     },
   });
-  const containerStyle = {
+  const containerStyle: CustomCSSProperties = {
     "--m-x": "50%",
     "--m-y": "50%",
     "--r-x": "0deg",
@@ -37,7 +53,7 @@ export const GlareCard = ({
     "--radius": "48px",
     "--easing": "ease",
     "--transition": "var(--duration) var(--easing)",
-  } as any;
+  };
 
   const backgroundStyle = {
     "--step": "5%",
@@ -130,4 +146,4 @@ export const GlareCard = ({
       </div>
     </div>
   );
-}; 
+};
