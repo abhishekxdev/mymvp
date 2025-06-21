@@ -94,7 +94,7 @@ export default function Hero() {
   const currentProject = projects[currentProjectIndex]
 
   return (
-    <div className="min-h-[80vh] w-screen flex flex-col items-center justify-center relative bg-black">
+    <div className="min-h-screen w-screen flex flex-col items-center justify-center relative bg-black">
       {/* Overlay for better readability */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
 
@@ -105,18 +105,15 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto z-10 px-4 md:px-8 pl-12 md:pl-8 mt-10 md:mt-48">
+      <div className="max-w-5xl mx-auto z-10 px-4 md:px-8 pl-12 md:pl-8">
         <div className="flex flex-col items-start justify-center gap-6 md:gap-8 text-left motion-translate-y-in-100 motion-duration-[1s] motion-ease-spring-smooth">
           <AnimatedShinyTextDemo/>
           
           {/* Heading with proper mobile line breaks and original font */}
           <h1 className="text-white text-4xl md:text-6xl tracking-tight font-sans">
-            {/* Mobile: Force line break after "MVPs that" */}
-            <span className="block md:inline">Start Smart with MVPs that</span>
+            Start Smart with MVPs <span className="block md:inline">that</span>
             <br className="block md:hidden" />
-            <span className="block md:inline">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Dominate</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Grow</span>
-            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Dominate</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Grow</span>
           </h1>
           
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
