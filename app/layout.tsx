@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import localFont from 'next/font/local';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,6 +12,22 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const playfair = localFont({
+  src: [
+    {
+      path: '../fonts/PlayfairDisplay-VariableFont_wght.ttf',
+      weight: '400 900',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf',
+      weight: '400 900',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-playfair'
 });
 
 export const metadata: Metadata = {
@@ -59,7 +76,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logomvp.png" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
         {children}
         <Analytics />

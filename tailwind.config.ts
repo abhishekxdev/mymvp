@@ -52,6 +52,9 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
+  		fontFamily: {
+  			playfair: ['var(--font-playfair)', 'serif'],
+  		},
   		keyframes: {
   			blobShadowLeft: {
   				'0%, 100%': {
